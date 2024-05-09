@@ -1,9 +1,9 @@
-import character from './Relink/data/character.js'
-import weapon from '../data/weapon.js'
-import skillArray from '../data/skill.js'
-import combo from '../data/combo.js'
-import abilityArray from '../data/ability.js'
-import wrightstone from '../data/wrightstone.js'
+import character from './Relink/data/character'
+import weapon from '../data/weapon'
+import skillArray from '../data/skill'
+import combo from '../data/combo'
+import abilityArray from '../data/ability'
+import wrightstone from '../data/wrightstone'
 
 const wrightstoneNumberArray = [...Array(3).keys()].map(i => `wrightstone${i + 1}`)
 
