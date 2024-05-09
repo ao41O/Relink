@@ -834,7 +834,7 @@ class Build{
 			})
 			return`
 			<details>
-				<summary>
+				<summary style="width: 600px">
 					<div style="margin-top: 20px; border-left: 2px #cdd3d8 solid; border-right: 2px #cdd3d8 solid; border-bottom: 2px #cdd3d8 solid; height: 100px; width: 600px; background-color: #f4faff;">
 						<div class=topline>
 							<div style="border: 2px #cdd3d8 solid; margin-top: -0.9em; color: white; border-radius: 10% / 50%; background-color: #9DC4E1;">
@@ -843,34 +843,35 @@ class Build{
 								</div>
 							</div>
 						</div>
-					<img src="${charaName}.PNG" alt="${charaName}.PNG" style="position: relative; top: -9px; width: 99px; height: 99%"/>
-					<div style="position: relative; top: -85px; left: 110px; height: 55%; width: 80%; display:flex; justify-content: space-between; flex-wrap: wrap;">
-						<div style="color: #267a67; width: 30%;">
-							HP
-						</div>
-						<div id="${(charaName)}hp" style="color: #267a67; width: 20%; text-align:center;">
-							${character[charaName].status.hp}
-						</div>
-						<div style="width: 30%;">
-							クリティカル率
-						</div>
-						<div id="${(charaName)}cri" style="width: 10%; text-align:right;">
-							15
-						</div>
-						<div id="${(charaName)}cri" style="width: 10%;">
-							%
-						</div>
-						<div style="color: #9b672a; width: 30%;">
-							攻撃力
-						</div>
-						<div id="${(charaName)}atk" style="color: #9b672a; width: 20%; text-align:center;">
-							${character[charaName].status.atk}
-						</div>
-						<div style="width: 30%;">
-							スタン値
-						</div>
-						<div id="${(charaName)}stun" style="width: 20%; text-align:center;">
-							0
+						<img src="${charaName}.PNG" alt="${charaName}.PNG" style="position: relative; top: -9px; width: 99px; height: 99%"/>
+						<div style="position: relative; top: -85px; left: 110px; height: 55%; width: 80%; display:flex; justify-content: space-between; flex-wrap: wrap;">
+							<div style="color: #267a67; width: 30%;">
+								HP
+							</div>
+							<div id="${(charaName)}hp" style="color: #267a67; width: 20%; text-align:center;">
+								${character[charaName].status.hp}
+							</div>
+							<div style="width: 30%;">
+								クリティカル率
+							</div>
+							<div id="${(charaName)}cri" style="width: 10%; text-align:right;">
+								15
+							</div>
+							<div id="${(charaName)}cri" style="width: 10%;">
+								%
+							</div>
+							<div style="color: #9b672a; width: 30%;">
+								攻撃力
+							</div>
+							<div id="${(charaName)}atk" style="color: #9b672a; width: 20%; text-align:center;">
+								${character[charaName].status.atk}
+							</div>
+							<div style="width: 30%;">
+								スタン値
+							</div>
+							<div id="${(charaName)}stun" style="width: 20%; text-align:center;">
+								0
+							</div>
 						</div>
 					</div>
 				</summary>
@@ -910,7 +911,7 @@ class Build{
 							<div id="${charaName}skilllist" style="display: flex; flex-wrap: wrap; height:35%; width:100%; flex-direction: column; align-content: flex-start;"></div>
 						</div>
 					</div>
-					<div style="position: relative; bottom: 100px; display:flex; flex-direction: column;">
+					<div style="height: 720px; position: relative; bottom: 100px; display:flex; flex-direction: column;">
 						<div style="position: relative; bottom: 2px; right: 2px; margin-top: 0px; border-left: 2px #cdd3d8 solid; border-right: 2px #cdd3d8 solid; border-bottom: 2px #cdd3d8 solid; height: 100px; width: 500px; background-color: #f4faff;">
 							<div class=topline>
 								<div style="border: 2px #cdd3d8 solid; margin-top: -0.9em; color: white; border-radius: 10% / 50%; background-color: #9DC4E1;">
