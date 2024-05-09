@@ -95,5 +95,165 @@ export const abilityArray = {
 		range: [1],
 		text:""
 	},
+	"ミゼラブルミスト":{
+		multiplier:[
+			0
+		],
+		hit:[
+			0
+		],
+		cap:[
+			{start: 0, end: 0, max: 14999},
+		],
+		motionspeed: [0, 0],
+		cd: [0, 0],
+		charge: [0],
+		range: [0],
+		text:""
+	},
+	"ディレイ":{
+		multiplier:[
+			0
+		],
+		hit:[
+			0
+		],
+		cap:[
+			{start: 0, end: 0, max: 14999},
+		],
+		motionspeed: [0, 0],
+		cd: [0, 0],
+		charge: [0],
+		range: [0],
+		text:""
+	},
+	"ファランクス":{
+		multiplier:[
+			0
+		],
+		hit:[
+			0
+		],
+		cap:[
+			{start: 0, end: 0, max: 14999},
+		],
+		motionspeed: [0, 0],
+		cd: [0, 0],
+		charge: [0],
+		range: [0],
+		text:""
+	},
+	"レイジ":{
+		multiplier:[
+			0
+		],
+		hit:[
+			0
+		],
+		cap:[
+			{start: 0, end: 0, max: 14999},
+		],
+		motionspeed: [0, 0],
+		cd: [0, 0],
+		charge: [0],
+		range: [0],
+		text:""
+	},
+	"ベール":{
+		multiplier:[
+			0
+		],
+		hit:[
+			0
+		],
+		cap:[
+			{start: 0, end: 0, max: 14999},
+		],
+		motionspeed: [0, 0],
+		cd: [0, 0],
+		charge: [0],
+		range: [0],
+		text:""
+	},
+	"コンダクション":{
+		multiplier:[
+			0
+		],
+		hit:[
+			0
+		],
+		cap:[
+			{start: 0, end: 0, max: 14999},
+		],
+		motionspeed: [0, 0],
+		cd: [0, 0],
+		charge: [0],
+		range: [0],
+		text:""
+	},
+	"かばう":{
+		multiplier:[
+			0
+		],
+		hit:[
+			0
+		],
+		cap:[
+			{start: 0, end: 0, max: 14999},
+		],
+		motionspeed: [0, 0],
+		cd: [0, 0],
+		charge: [0],
+		range: [0],
+		text:""
+	},
+	"ヒールオール":{
+		multiplier:[
+			0
+		],
+		hit:[
+			0
+		],
+		cap:[
+			{start: 0, end: 0, max: 14999},
+		],
+		motionspeed: [0, 0],
+		cd: [0, 0],
+		charge: [0],
+		range: [0],
+		text:""
+	},
+	"クリアオール":{
+		multiplier:[
+			0
+		],
+		hit:[
+			0
+		],
+		cap:[
+			{start: 0, end: 0, max: 14999},
+		],
+		motionspeed: [0, 0],
+		cd: [0, 0],
+		charge: [0],
+		range: [0],
+		text:""
+	},
+	"リヴァイヴ":{
+		multiplier:[
+			0
+		],
+		hit:[
+			0
+		],
+		cap:[
+			{start: 0, end: 0, max: 14999},
+		],
+		motionspeed: [0, 0],
+		cd: [0, 0],
+		charge: [0],
+		range: [0],
+		text:""
+	},
 }
 export default abilityArray

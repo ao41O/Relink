@@ -57,9 +57,6 @@ export const character = {
 			"クリアオール",
 			"リヴァイヴ"
 		],
-		command:[
-			"コンボ"
-		]
 	},
 }
 export default character
