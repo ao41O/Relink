@@ -32,3 +32,4 @@ export const abilityArray = {
 		text:"連続ヒットする斬撃。<br>範囲が広く、前方の敵を巻き込みやすい。<br>Class Lvに応じてヒット数が増加する。"
 	},
 }
+export default abilityArray
