@@ -875,7 +875,7 @@ class Build{
 						</div>
 					</div>
 				</summary>
-				<div style="display:flex; width: 1210px">
+				<div style="display:flex; height: 614px; width: 1210px">
 					<div style="position: relative; bottom:2px; border-left: 2px #cdd3d8 solid; border-right: 2px #cdd3d8 solid; border-bottom: 2px #cdd3d8 solid; height: 614px; width: 600px; background-color: #f4faff;">
 						<div class=topline>
 							<div style="border: 2px #cdd3d8 solid; margin-top: -0.9em; color: white; border-radius: 10% / 50%; background-color: #9DC4E1;">
