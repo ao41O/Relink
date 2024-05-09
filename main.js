@@ -1,4 +1,4 @@
-import character from '../data/character.js'
+import character from './Relink/data/character.js'
 import weapon from '../data/weapon.js'
 import skillArray from '../data/skill.js'
 import combo from '../data/combo.js'
