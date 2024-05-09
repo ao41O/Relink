@@ -12,3 +12,4 @@ export const wrightstone = {
 		text:"スタン値が上昇する"
 	},
 }
+export default wrightstone

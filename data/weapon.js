@@ -30,3 +30,4 @@ export const weapon = {
 		type:"究極"
 	},
 }
+export default weapon

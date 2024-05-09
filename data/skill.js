@@ -1732,3 +1732,4 @@ export const skillArray = {
 		text:"Class Lvが高くなるほど攻撃力と防御力が上昇する<br>ジータ専用"
 	}
 }
+export default skillArray

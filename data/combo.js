@@ -34,3 +34,4 @@ export const combo = {
 		},
 	}
 }
+export default combo

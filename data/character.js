@@ -48,3 +48,4 @@ export const character = {
     ]
   },
 }
+export default character
