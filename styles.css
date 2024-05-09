@@ -1,0 +1,41 @@
+.topline {
+	color: #444;
+	font-size: 12px;
+	display: flex;
+}
+.topline:before, .topline:after {
+	content: "";
+	flex-grow: 1;
+	height: 2px;
+	background: #cdd3d8;
+	display: block;
+}
+summary {
+	display: block;
+	list-style: none;
+	width: 600px;
+}
+.clac {
+	height:9%;
+	width:25%;
+	border-bottom: 1px solid;
+	text-align:center;
+	box-sizing: border-box
+}
+.setting {
+	height:9%;
+	width:20%;
+	text-align:left
+}
+
+input[type="radio"]:checked + label {
+	background-color: #80c6ff;
+	border: none;
+	border-radius: 5px
+}
+
+label:hover {
+	background-color: #80c6ff;
+	border: none;
+	border-radius: 5px
+}
