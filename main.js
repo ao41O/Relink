@@ -341,8 +341,7 @@ class Html{
 				const specificArray =  Object.keys(skillArray).filter(key => skillArray[key].type === "専用")
 				const matchedSigils = character[charaName].sigil.filter(sigil => specificArray.includes(sigil))
 				const dpsArray = [...attackArray, "カニの共鳴"]
-				const basicArray = [...matchedSigils, "クリティカル確率", "攻撃力", "クイックアビリティ"]
-				const capArray = ["アルファ・コード", "ベータ・コード", "ガンマ・コード"]
+				const basicArray = [...matchedSigils, "クリティカル確率", "攻撃力", "クイックアビリティ", "アルファ・コード", "ベータ・コード", "ガンマ・コード"]
 				
 				basicArray.forEach(pushName => {
 					Update.sigil(charaName, typeName, "push", pushName)
@@ -368,27 +367,11 @@ class Html{
 				})
 				const attackKeyArray = attackClacArraySortedData.map(obj => Object.keys(obj)[0])
 				
-				capArray.forEach(pushName => {
-					Update.sigil(charaName, typeName, "push", pushName)
-					Update.status(charaName, "clac")
-					Build.damage(charaName, "clac", pushName, capClacArray)
-				})
-				const capClacArraySortedData = capClacArray.sort((a, b) => {
-					const aValue = parseInt(a[Object.keys(a)[0]][0].replace(",", ""), 10)
-					const bValue = parseInt(b[Object.keys(b)[0]][0].replace(",", ""), 10)
-					return bValue - aValue
-				})
-				const capKeyArray = capClacArraySortedData.map(obj => Object.keys(obj)[0])
-				
 				document.getElementById(charaName+typeName+"sigilradio").innerHTML = `
 				<div style="text-align: center;  border-bottom:1px solid;">
 					その他
 				</div>
 				${this.radio_create(basicKeyArray, typeName, charaName)}
-				<div style="text-align: center;  border-bottom:1px solid;">
-					コード
-				</div>
-				${this.radio_create(capKeyArray, typeName, charaName)}
 				<div style="text-align: center;  border-bottom:1px solid;">
 					攻撃
 				</div>
