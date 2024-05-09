@@ -2,7 +2,7 @@ import character from './data/character.js'
 import weapon from './data/weapon.js'
 import skillArray from './data/skill.js'
 import combo from './data/combo.js'
-import { abilityArray } from './data/ability.js'
+import abilityArray from './data/ability.js'
 import wrightstone from './data/wrightstone.js'
 
 const wrightstoneNumberArray = [...Array(3).keys()].map(i => `wrightstone${i + 1}`)
