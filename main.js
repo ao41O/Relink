@@ -741,16 +741,21 @@ class Build{
 			clacType = JSON.parse(localStorage.getItem(charaName+"topsort"))
 		}
 		const totalDamageArray = clacType.map(comboName => {
-			const hit = combo[charaName][comboName].hit
-			const motionspeed = combo[charaName][comboName].motionspeed[0] + combo[charaName][comboName].motionspeed[1] * クイックチャージ
+			let hit = combo[charaName][comboName].hit
+			let motionspeed = combo[charaName][comboName].motionspeed[0] + combo[charaName][comboName].motionspeed[1] * クイックチャージ
 			let totalDamage = 0
 			combo[charaName][comboName].cap.forEach(cap => {
 				for (let i = cap.start - 1; i < cap.end; i++) {
 					let 操舵士の意地 = 0
-					if(comboName === "基本攻撃+ブルスナイプ" && localStorage.getItem(charaName+"操舵士の意地") !== null && i + 1 === 4 || i + 1 === 5){
+					if(charaName === "ラカム" && comboName === "基本攻撃+ブルスナイプ" && localStorage.getItem(charaName+"操舵士の意地") !== null && i + 1 === 4 || i + 1 === 5){
 						操舵士の意地 = parseFloat(localStorage.getItem(charaName+"操舵士の意地"))
 					}
-					console.log(操舵士の意地)
+					let 操舵士の導き = 0
+					if(charaName === "ラカム" && comboName === "基本攻撃+ブルスナイプ" && i + 1 === 1 || i + 1 === 3 || comboName === "基本攻撃" && localStorage.getItem(charaName+"操舵士の導き") === 1){
+						motionspeed = 0.14 + motionspeed
+						hit = hit + 1
+					}
+					console.log(hit)
 					let combofinisher = 1
 					let chargeattack = 1
 					let luckycharge = 0
