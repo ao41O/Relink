@@ -221,12 +221,14 @@ class Html{
 				<button id=${charaName+typeName}IDソート style="margin-bottom:20px; border: 1px solid; background: white; padding: .8rem; cursor: pointer;">
 					初期ID順
 				</button>
+				<div id=${charaName+typeName}sigilradio></div>`
+				
+				document.getElementById(charaName+typeName+"sigilradio").innerHTML = `
 				<div style="margin-bottom:20px; margin-left:10px; background-color: #e6f4ff; width: fit-content; border:1px solid; border-radius: 5px;">
 				<input type=radio id="${charaName+typeName}はずす" name=${charaName+typeName} value=${buttonText} style="display:none;">
 				<label for="${charaName+typeName}はずす" style="padding: 0 50px">はずす</label>
 				</div>
-				<div id=${charaName+typeName}sigilradio></div>`
-				document.getElementById(charaName+typeName+"sigilradio").innerHTML = `<div style="text-align: center;  border-bottom:1px solid;">
+				<div style="text-align: center;  border-bottom:1px solid;">
 					基礎
 				</div>
 				${this.radio_create(basicArray, typeName, charaName)}
@@ -257,8 +259,18 @@ class Html{
 				const buffAbility = typeArray.filter(key => abilityArray[key].type === "強化アビリティ")
 				const debuffAbility = typeArray.filter(key => abilityArray[key].type === "弱体アビリティ")
 				const healingAbility = typeArray.filter(key => abilityArray[key].type === "回復アビリティ")
+				
 				document.getElementById(charaName+typeName+"radio").innerHTML = `
-				<div style="margin-top:20px; margin-left:10px; background-color: #e6f4ff; width: fit-content; border:1px solid; border-radius: 5px;">
+				<button id=${charaName+typeName}ダメージソート style="margin-top:20px; margin-bottom:20px; border: 1px solid; background: white; padding: .8rem; cursor: pointer;">
+					ダメージ順
+				</button>
+				<button id=${charaName+typeName}IDソート style="margin-bottom:20px; border: 1px solid; background: white; padding: .8rem; cursor: pointer;">
+					初期ID順
+				</button>
+				<div id=${charaName+typeName}skillradio></div>`
+				
+				document.getElementById(charaName+typeName+"skillradio").innerHTML = `
+				<div style="margin-bottom:20px; margin-left:10px; background-color: #e6f4ff; width: fit-content; border:1px solid; border-radius: 5px;">
 				<input type=radio id="${charaName+typeName}はずす" name=${charaName+typeName} value=${buttonText} style="display:none;">
 				<label for="${charaName+typeName}はずす" style="padding: 0 50px">はずす</label>
 				</div>
@@ -279,7 +291,7 @@ class Html{
 				</div>
 				${this.radio_create(healingAbility, typeName, charaName)}`
 			}
-			this.event_create(typeName, charaName, textValue)
+			this.event_create(typeName, charaName, textValue, buttonText)
 		})
 		let textBox
 		if(typeName.includes("sigil") || typeName.includes("wrightstone")){
@@ -332,7 +344,7 @@ class Html{
 	
 	
 	
-	static event_create(typeName, charaName, textValue){
+	static event_create(typeName, charaName, textValue, buttonText){
 		const radioButtons = document.querySelectorAll('input[type="radio"]')
 		radioButtons.forEach(radioButton => {
 			const storedRadioValue = localStorage.getItem(charaName+typeName+"name")
@@ -387,6 +399,11 @@ class Html{
 				const attackKeyArray = attackClacArraySortedData.map(obj => Object.keys(obj)[0])
 				
 				document.getElementById(charaName+typeName+"sigilradio").innerHTML = `
+				<div style="margin-bottom:20px; margin-left:10px; background-color: #e6f4ff; width: fit-content; border:1px solid; border-radius: 5px;">
+				<input type=radio id="${charaName+typeName}はずす" name=${charaName+typeName} value=${buttonText} style="display:none;">
+				<label for="${charaName+typeName}はずす" style="padding: 0 50px">はずす</label>
+				</div>
+				
 				<div style="text-align: center;  border-bottom:1px solid;">
 					その他
 				</div>
@@ -422,7 +439,12 @@ class Html{
 				const specialArray =  Object.keys(skillArray).filter(key => skillArray[key].type === "特殊")
 				const specificArray =  Object.keys(skillArray).filter(key => skillArray[key].type === "専用")
 				const matchedSigils = character[charaName].sigil.filter(sigil => specificArray.includes(sigil))
-				document.getElementById(charaName+typeName+"sigilradio").innerHTML = `<div style="text-align: center;  border-bottom:1px solid;">
+				document.getElementById(charaName+typeName+"sigilradio").innerHTML = `
+				<div style="margin-bottom:20px; margin-left:10px; background-color: #e6f4ff; width: fit-content; border:1px solid; border-radius: 5px;">
+				<input type=radio id="${charaName+typeName}はずす" name=${charaName+typeName} value=${buttonText} style="display:none;">
+				<label for="${charaName+typeName}はずす" style="padding: 0 50px">はずす</label>
+				</div>
+				<div style="text-align: center;  border-bottom:1px solid;">
 					基礎
 				</div>
 				${this.radio_create(basicArray, typeName, charaName)}
@@ -455,6 +477,104 @@ class Html{
 								const radioValue = elements[i].value
 								localStorage.setItem(charaName+typeName+"name", radioValue)
 								localStorage.setItem(charaName+typeName+"lv", document.getElementById(charaName+typeName).value)
+								document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
+								Update.sigil(charaName, typeName)
+								Build.skill(charaName)
+								Update.status(charaName)
+								Build.damage(charaName, "html")
+							}
+						}
+					})
+				}
+			})
+		}else if(typeName.includes("skill")){
+			document.getElementById(charaName+typeName+"ダメージソート").addEventListener('click', () => {
+				var skillClacArray = []
+				const skillArray = character[charaName].skill.filter(key => abilityArray[key].type === "ダメージアビリティ")
+				const abillitySelectArray = []
+				for (let i = 1; i <= 4; i++) {
+					localStorage.setItem(`${charaName}abillityDamage${i}`, 0)
+					if(localStorage.getItem(`${charaName}skill${i}name`) !== null){
+						abillitySelectArray.push(localStorage.getItem(`${charaName}skill${i}name`))
+					}
+				}
+				const resultArray = skillArray.filter(key => !abillitySelectArray.includes(key))
+				resultArray.forEach(pushName => {
+					Build.damage(charaName, "skillclac", pushName, skillClacArray)
+				})
+				
+				const skillClacArraySortedData = skillClacArray.sort((a, b) => {
+					const aValue = parseInt(a[Object.keys(a)[0]][0].replace(",", ""), 10)
+					const bValue = parseInt(b[Object.keys(b)[0]][0].replace(",", ""), 10)
+					return bValue - aValue
+				})
+				
+				const skillKeyArray = skillClacArraySortedData.map(obj => Object.keys(obj)[0])
+				
+				document.getElementById(charaName+typeName+"skillradio").innerHTML = `
+				<div style="margin-bottom:20px; margin-left:10px; background-color: #e6f4ff; width: fit-content; border:1px solid; border-radius: 5px;">
+				<input type=radio id="${charaName+typeName}はずす" name=${charaName+typeName} value=${buttonText} style="display:none;">
+				<label for="${charaName+typeName}はずす" style="padding: 0 50px">はずす</label>
+				</div>
+				
+				<div style="text-align: center;  border-bottom:1px solid;">
+					ダメージアビリティ
+				</div>
+				${this.radio_create(skillKeyArray, typeName, charaName)}`
+				
+				const elements = document.getElementsByName(charaName+typeName)
+				for(var i = 0; i < elements.length; i++) {
+					elements[i].addEventListener('change', () => {
+						for(var i = 0; i < elements.length; i++) {
+							if(elements[i].checked) {
+								const radioValue = elements[i].value
+								localStorage.setItem(charaName+typeName+"name", radioValue)
+								document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
+								Update.sigil(charaName, typeName)
+								Build.skill(charaName)
+								Update.status(charaName)
+								Build.damage(charaName, "html")
+							}
+						}
+					})
+				}
+			})
+			
+			document.getElementById(charaName+typeName+"IDソート").addEventListener('click', () => {
+				const damageAbility = character[charaName].skill.filter(key => abilityArray[key].type === "ダメージアビリティ")
+				const buffAbility = character[charaName].skill.filter(key => abilityArray[key].type === "強化アビリティ")
+				const debuffAbility = character[charaName].skill.filter(key => abilityArray[key].type === "弱体アビリティ")
+				const healingAbility = character[charaName].skill.filter(key => abilityArray[key].type === "回復アビリティ")
+				
+				document.getElementById(charaName+typeName+"skillradio").innerHTML = `
+				<div style="margin-bottom:20px; margin-left:10px; background-color: #e6f4ff; width: fit-content; border:1px solid; border-radius: 5px;">
+				<input type=radio id="${charaName+typeName}はずす" name=${charaName+typeName} value=${buttonText} style="display:none;">
+				<label for="${charaName+typeName}はずす" style="padding: 0 50px">はずす</label>
+				</div>
+				<div style="text-align: center;  border-bottom:1px solid;">
+					ダメージアビリティ
+				</div>
+				${this.radio_create(damageAbility, typeName, charaName)}
+				<div style="text-align: center;  border-bottom:1px solid;">
+					強化アビリティ
+				</div>
+				${this.radio_create(buffAbility, typeName, charaName)}
+				<div style="text-align: center;  border-bottom:1px solid;">
+					弱体アビリティ
+				</div>
+				${this.radio_create(debuffAbility, typeName, charaName)}
+				<div style="text-align: center;  border-bottom:1px solid;">
+					回復アビリティ
+				</div>
+				${this.radio_create(healingAbility, typeName, charaName)}`
+				
+				const elements = document.getElementsByName(charaName+typeName)
+				for(var i = 0; i < elements.length; i++) {
+					elements[i].addEventListener('change', () => {
+						for(var i = 0; i < elements.length; i++) {
+							if(elements[i].checked) {
+								const radioValue = elements[i].value
+								localStorage.setItem(charaName+typeName+"name", radioValue)
 								document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 								Update.sigil(charaName, typeName)
 								Build.skill(charaName)
@@ -684,11 +804,17 @@ class Build{
 		const クイックアビリティ = parseFloat(localStorage.getItem(charaName+"クイックアビリティ"))
 		const ブレイブオーラ = (100 + parseFloat(localStorage.getItem(charaName+"ブレイブオーラ")))/ 100
 		const 追撃期待値 = (1 - 追撃 / 100 + 追撃 / 100 * 1.2).toFixed(2)
+		
 		const abillitySelectArray = []
-		for (let i = 1; i <= 4; i++) {
+		for (let i = 1; i <= 5; i++) {
 			localStorage.setItem(`${charaName}abillityDamage${i}`, 0)
 			abillitySelectArray.push(localStorage.getItem(`${charaName}skill${i}name`))
 		}
+		
+		if(eventType === "skillclac"){
+			abillitySelectArray[4] = (array)
+		}
+		
 		let count = 0
 		for (let i = 0; i < abillitySelectArray.length; i++) {
 			if (abillitySelectArray[i] !== null && abillitySelectArray[i] !== "スキル選択") {
@@ -700,6 +826,7 @@ class Build{
 		if(有利属性変換 === 1){
 			有利 = 1.2
 		}
+		
 		
 		abillitySelectArray.forEach((abillityName, index) => {
 			const newIndex = index + 1
@@ -737,18 +864,34 @@ class Build{
 		})
 		
 		let clacType = Object.keys(combo[charaName])
-		if(eventType === "clac"){
+		if(eventType === "clac" || eventType === "skillclac" ){
 			clacType = JSON.parse(localStorage.getItem(charaName+"topsort"))
 		}
 		const totalDamageArray = clacType.map(comboName => {
 			const hit = combo[charaName][comboName].hit
-			const motionspeed = combo[charaName][comboName].motionspeed[0] + combo[charaName][comboName].motionspeed[1] * クイックチャージ
+			let 操舵士の導き = 0
+			if(charaName === "ラカム" && localStorage.getItem(charaName+"操舵士の導き") === "1"){
+				if(comboName === "基本攻撃"){
+					操舵士の導き = 0.14
+				}else if(comboName === "基本攻撃+ブルスナイプ"){
+					操舵士の導き = 0.14 * 3
+				}
+			}
+			const motionspeed = (combo[charaName][comboName].motionspeed[0] + combo[charaName][comboName].motionspeed[1] * クイックチャージ) + 操舵士の導き
 			let totalDamage = 0
 			combo[charaName][comboName].cap.forEach(cap => {
 				for (let i = cap.start - 1; i < cap.end; i++) {
 					let 操舵士の意地 = 0
 					if(charaName === "ラカム" && comboName === "基本攻撃+ブルスナイプ" && localStorage.getItem(charaName+"操舵士の意地") !== null && i + 1 === 4 || i + 1 === 5){
 						操舵士の意地 = parseFloat(localStorage.getItem(charaName+"操舵士の意地"))
+					}
+					let 操舵士の導きhit = 0
+					if(charaName === "ラカム" && localStorage.getItem(charaName+"操舵士の導き") === "1"){
+						if(comboName === "基本攻撃" && i + 1 === 1){
+							操舵士の導きhit = 1
+						}else if(comboName === "基本攻撃+ブルスナイプ" && i + 1 === 1 || i + 1 === 2 || i + 1 === 3){
+							操舵士の導きhit = 1
+						}
 					}
 					let combofinisher = 1
 					let chargeattack = 1
@@ -770,14 +913,14 @@ class Build{
 					const criAverage = (1 - criticalChance / 100 + criticalChance / 100 * (1 + (criDamage / 100))).toFixed(2)
 					const damageMultiplier = ((100 + combo[charaName][comboName].multiplier[i]) / 100)
 					let product = charaAtk * damageMultiplier * criAverage * skillMultiplier
-					let newValue = Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * hit[i] / motionspeed
+					let newValue = Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * (hit[i] + 操舵士の導きhit) / motionspeed
 					totalDamage += newValue
 				}
 			})
 			
 			
 			let totalSkillDamage = 0
-			for (let i = 1; i <= 4; i++) {
+			for (let i = 1; i <= 5; i++) {
 				let skillDamage = 0
 				const damage = parseFloat(localStorage.getItem(`${charaName}abillityDamage${i}`))
 				const cd = parseFloat(localStorage.getItem(`${charaName}abillityCd${i}`))
@@ -790,7 +933,8 @@ class Build{
 			}
 			return {[comboName] : totalDamage = Intl.NumberFormat().format(Math.round(totalDamage + totalSkillDamage))}
 		})
-		if(eventType !== "clac"){
+		
+		if(eventType !== "clac" || eventType !== "skillclac"){
 			totalDamageArray.sort(function(a, b) {
 				let aValue = parseInt(Object.values(a)[0].replace(/,/g, ""))
 				let bValue = parseInt(Object.values(b)[0].replace(/,/g, ""))
@@ -810,7 +954,7 @@ class Build{
 					</div>`
 				}).join("")
 			}).join("")
-		}else if(eventType === "clac"){
+		}else if(eventType === "clac" || eventType === "skillclac"){
 			newArray.push({[array]:Object.values(totalDamageArray[0])})
 		}
 	}
