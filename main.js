@@ -743,12 +743,24 @@ class Build{
 		const totalDamageArray = clacType.map(comboName => {
 			const hit = combo[charaName][comboName].hit
 			const motionspeed = combo[charaName][comboName].motionspeed[0] + combo[charaName][comboName].motionspeed[1] * クイックチャージ
+			let 操舵士の導きmotionspeed = 0
+			if(charaName === "ラカム" && comboName === "基本攻撃+ブルスナイプ" && localStorage.getItem(charaName+"操舵士の導き") === 1){
+				操舵士の導きmotionspeed = 0.14 * 3
+			}
+			if(charaName === "ラカム" && comboName === "基本攻撃" && localStorage.getItem(charaName+"操舵士の導き") === 1){
+				操舵士の導きmotionspeed = 0.14
+			}
+			console.log(操舵士の導きmotionspeed)
 			let totalDamage = 0
 			combo[charaName][comboName].cap.forEach(cap => {
 				for (let i = cap.start - 1; i < cap.end; i++) {
 					let 操舵士の意地 = 0
 					if(charaName === "ラカム" && comboName === "基本攻撃+ブルスナイプ" && localStorage.getItem(charaName+"操舵士の意地") !== null && i + 1 === 4 || i + 1 === 5){
 						操舵士の意地 = parseFloat(localStorage.getItem(charaName+"操舵士の意地"))
+					}
+					let 操舵士の導き = 0
+					if(charaName === "ラカム" && comboName === "基本攻撃+ブルスナイプ" && localStorage.getItem(charaName+"操舵士の導き") === 1 && i + 1 === 1 || i + 1 === 2 i + 1 === 3 || charaName === "ラカム" && comboName === "基本攻撃" && localStorage.getItem(charaName+"操舵士の導き") === 1){
+						操舵士の導き = parseFloat(localStorage.getItem(charaName+"操舵士の導き"))
 					}
 					let combofinisher = 1
 					let chargeattack = 1
@@ -770,7 +782,7 @@ class Build{
 					const criAverage = (1 - criticalChance / 100 + criticalChance / 100 * (1 + (criDamage / 100))).toFixed(2)
 					const damageMultiplier = ((100 + combo[charaName][comboName].multiplier[i]) / 100)
 					let product = charaAtk * damageMultiplier * criAverage * skillMultiplier
-					let newValue = Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * hit[i] / motionspeed
+					let newValue = Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * (hit[i] + 操舵士の導き) / (motionspeed + 操舵士の導きmotionspeed)
 					totalDamage += newValue
 				}
 			})
