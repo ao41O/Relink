@@ -13,7 +13,8 @@ export const abilityArray = {
 		cd: [15, 0],
 		charge: [0],
 		range: [1],
-		text:"前方に波動を放つ遠距離攻撃。<br>Class Lvに応じてヒット数が増加する"
+		text:"前方に波動を放つ遠距離攻撃。<br>Class Lvに応じてヒット数が増加する",
+		type:"ダメージアビリティ"
 	},
 	"ディストリーム":{
 		multiplier:[
@@ -29,7 +30,8 @@ export const abilityArray = {
 		cd: [30, 0],
 		charge: [0],
 		range: [0],
-		text:"連続ヒットする斬撃。<br>範囲が広く、前方の敵を巻き込みやすい。<br>Class Lvに応じてヒット数が増加する。"
+		text:"連続ヒットする斬撃。<br>範囲が広く、前方の敵を巻き込みやすい。<br>Class Lvに応じてヒット数が増加する。",
+		type:"ダメージアビリティ"
 	},
 	"ドライブバースト":{
 		multiplier:[
@@ -45,7 +47,8 @@ export const abilityArray = {
 		cd: [30, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"",
+		type:"ダメージアビリティ"
 	},
 	"アーマーブレイク":{
 		multiplier:[
@@ -61,7 +64,8 @@ export const abilityArray = {
 		cd: [45, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"前方の敵に高速接近する攻撃。<br>命中時に防御DOWN効果を付与する。<br>Class Lvに応じて効果量と効果時間が増加する",
+		type:"ダメージアビリティ"
 	},
 	"アローレイン":{
 		multiplier:[
@@ -77,7 +81,8 @@ export const abilityArray = {
 		cd: [45, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"",
+		type:"ダメージアビリティ"
 	},
 	"ディスペル":{
 		multiplier:[
@@ -93,7 +98,8 @@ export const abilityArray = {
 		cd: [60, 10],
 		charge: [0],
 		range: [1],
-		text:""
+		text:"",
+		type:"ダメージアビリティ"
 	},
 	"ミゼラブルミスト":{
 		multiplier:[
@@ -109,7 +115,8 @@ export const abilityArray = {
 		cd: [0, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"",
+		type:"弱体アビリティ"
 	},
 	"ディレイ":{
 		multiplier:[
@@ -125,7 +132,8 @@ export const abilityArray = {
 		cd: [0, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"",
+		type:"弱体アビリティ"
 	},
 	"ファランクス":{
 		multiplier:[
@@ -141,7 +149,8 @@ export const abilityArray = {
 		cd: [0, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"自分と近くの仲間に被ダメージカット効果を付与する。<br>Class Lvに応じて効果量と効果時間が増加する。",
+		type:"強化アビリティ"
 	},
 	"レイジ":{
 		multiplier:[
@@ -157,7 +166,8 @@ export const abilityArray = {
 		cd: [0, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"",
+		type:"強化アビリティ"
 	},
 	"ベール":{
 		multiplier:[
@@ -173,7 +183,8 @@ export const abilityArray = {
 		cd: [0, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"",
+		type:"強化アビリティ"
 	},
 	"コンダクション":{
 		multiplier:[
@@ -189,7 +200,8 @@ export const abilityArray = {
 		cd: [0, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"",
+		type:"強化アビリティ"
 	},
 	"かばう":{
 		multiplier:[
@@ -205,7 +217,8 @@ export const abilityArray = {
 		cd: [0, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"",
+		type:"強化アビリティ"
 	},
 	"ヒールオール":{
 		multiplier:[
@@ -221,7 +234,8 @@ export const abilityArray = {
 		cd: [0, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"範囲内の仲間のHPを回復する。<br>ボタン長押しで発動位置を指定可能。<br>Class Lvに応じて回復量が増加する",
+		type:"回復アビリティ"
 	},
 	"クリアオール":{
 		multiplier:[
@@ -237,7 +251,8 @@ export const abilityArray = {
 		cd: [0, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"",
+		type:"回復アビリティ"
 	},
 	"リヴァイヴ":{
 		multiplier:[
@@ -253,7 +268,8 @@ export const abilityArray = {
 		cd: [0, 0],
 		charge: [0],
 		range: [0],
-		text:""
+		text:"",
+		type:"回復アビリティ"
 	},
 }
 export default abilityArray
