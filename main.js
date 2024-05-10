@@ -753,7 +753,7 @@ class Build{
 					let 操舵士の導き = 0
 					if(charaName === "ラカム" && comboName === "基本攻撃+ブルスナイプ" && i + 1 === 1 || i + 1 === 3 || comboName === "基本攻撃" && localStorage.getItem(charaName+"操舵士の導き") === 1){
 						motionspeed = 0.14 + motionspeed
-						hit = hit + 1
+						hit = hit[i] + 1
 					}
 					console.log(hit)
 					let combofinisher = 1
