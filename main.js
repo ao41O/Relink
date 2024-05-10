@@ -746,6 +746,11 @@ class Build{
 			let totalDamage = 0
 			combo[charaName][comboName].cap.forEach(cap => {
 				for (let i = cap.start - 1; i < cap.end; i++) {
+					let 操舵士の意地 = 0
+					if(comboName === "基本攻撃+ブルスナイプ" && localStorage.getItem(charaName+"操舵士の意地") !== null && i + 1 => 4){
+						操舵士の意地 = parseFloat(localStorage.getItem(charaName+"操舵士の意地"))
+					}
+					console.log(操舵士の意地)
 					let combofinisher = 1
 					let chargeattack = 1
 					let luckycharge = 0
@@ -760,7 +765,7 @@ class Build{
 					if (combo[charaName][comboName].range.includes(i + 1)) {
 						rangeattack = 集中砲火
 					}
-					const damageCap = (100 + parseFloat(localStorage.getItem(charaName+"ダメージ上限")) + parseFloat(localStorage.getItem(charaName+"紙一重")) + parseFloat(localStorage.getItem(charaName+"アルファ・コード")) + parseFloat(localStorage.getItem(charaName+"ガンマ・コード")) + カタストロフィ + parseFloat(localStorage.getItem(charaName+"weaponcollectnormalcap")) + parseFloat(localStorage.getItem(charaName+"skilltreenormalcap")) + parseFloat(localStorage.getItem(charaName+"limitbreaknormalcap"))) / 100
+					const damageCap = (100 + 操舵士の意地 + parseFloat(localStorage.getItem(charaName+"ダメージ上限")) + parseFloat(localStorage.getItem(charaName+"紙一重")) + parseFloat(localStorage.getItem(charaName+"アルファ・コード")) + parseFloat(localStorage.getItem(charaName+"ガンマ・コード")) + カタストロフィ + parseFloat(localStorage.getItem(charaName+"weaponcollectnormalcap")) + parseFloat(localStorage.getItem(charaName+"skilltreenormalcap")) + parseFloat(localStorage.getItem(charaName+"limitbreaknormalcap"))) / 100
 					const skillMultiplier = 背水 * 渾身 * 捨て身 * コンボボーナス * combofinisher * chargeattack * rangeattack * 弱体状態特効 * オーバードライブ特効 * ブレイク特効 * 先制 * 修羅 * ガードリベンジ * 回避リベンジ * 裸一貫 * ブレイブオーラ
 					const criticalChance = Math.min(100, parseFloat(localStorage.getItem(charaName+"cri")) + luckycharge)
 					const criAverage = (1 - criticalChance / 100 + criticalChance / 100 * (1 + (criDamage / 100))).toFixed(2)
