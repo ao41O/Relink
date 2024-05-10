@@ -253,12 +253,31 @@ class Html{
 			}else if(typeName === "weapon"){
 				document.getElementById(charaName+typeName+"radio").innerHTML = this.radio_create(typeArray, typeName, charaName)
 			}else{
+				const damageAbility = typeArray.filter(key => abilityArray[key].type === "ダメージアビリティ")
+				const buffAbility = typeArray.filter(key => abilityArray[key].type === "強化アビリティ")
+				const debuffAbility = typeArray.filter(key => abilityArray[key].type === "弱体アビリティ")
+				const healingAbility = typeArray.filter(key => abilityArray[key].type === "回復アビリティ")
 				document.getElementById(charaName+typeName+"radio").innerHTML = `
 				<div style="margin-top:20px; margin-left:10px; background-color: #e6f4ff; width: fit-content; border:1px solid; border-radius: 5px;">
 				<input type=radio id="${charaName+typeName}はずす" name=${charaName+typeName} value=${buttonText} style="display:none;">
 				<label for="${charaName+typeName}はずす" style="padding: 0 50px">はずす</label>
 				</div>
-				${this.radio_create(typeArray, typeName, charaName)}`
+				<div style="text-align: center;  border-bottom:1px solid;">
+					ダメージアビリティ
+				</div>
+				${this.radio_create(damageAbility, typeName, charaName)}
+				<div style="text-align: center;  border-bottom:1px solid;">
+					強化アビリティ
+				</div>
+				${this.radio_create(buffAbility, typeName, charaName)}
+				<div style="text-align: center;  border-bottom:1px solid;">
+					弱体アビリティ
+				</div>
+				${this.radio_create(debuffAbility, typeName, charaName)}
+				<div style="text-align: center;  border-bottom:1px solid;">
+					回復アビリティ
+				</div>
+				${this.radio_create(healingAbility, typeName, charaName)}`
 			}
 			this.event_create(typeName, charaName, textValue)
 		})
