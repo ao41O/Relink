@@ -747,7 +747,7 @@ class Build{
 			combo[charaName][comboName].cap.forEach(cap => {
 				for (let i = cap.start - 1; i < cap.end; i++) {
 					let 操舵士の意地 = 0
-					if(comboName === "基本攻撃+ブルスナイプ" && localStorage.getItem(charaName+"操舵士の意地") !== null && i + 1 => 4){
+					if(comboName === "基本攻撃+ブルスナイプ" && localStorage.getItem(charaName+"操舵士の意地") !== null && i + 1 === 4 || i + 1 === 5){
 						操舵士の意地 = parseFloat(localStorage.getItem(charaName+"操舵士の意地"))
 					}
 					console.log(操舵士の意地)
