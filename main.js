@@ -861,8 +861,8 @@ class Build{
 								</div>
 							</div>
 						</div>
-						<img src="./image/${charaName}.PNG" alt="${charaName}.PNG" style="position: relative; top: -9px; width: 99px; height: 99%"/>
-						<div style="position: relative; top: -85px; left: 110px; height: 55%; width: 80%; display:flex; justify-content: space-between; flex-wrap: wrap;">
+						<img src="./image/${charaName}.png" alt="${charaName}.png" style="position: relative; top: -9px; width: 130px; height: 90px"/>
+						<div style="position: relative; top: -80px; left: 150px; height: 55%; width: 75%; display:flex; justify-content: space-between; flex-wrap: wrap;">
 							<div style="color: #267a67; width: 30%;">
 								HP
 							</div>
