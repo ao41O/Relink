@@ -686,7 +686,7 @@ class Build{
 			const newIndex = index + 1
 			localStorage.setItem(`${charaName}abillityCd${newIndex}`, 0)
 			localStorage.setItem(`${charaName}abillityMotionspeed${newIndex}`, 0)
-			if(abillityName !== null && abillityName !== undefined && abillityName !== "スキル選択"){
+			if(abillityName !== null && abillityName !== undefined && abillityName !== "スキル選択" && abilityArray[abillityName].type === "ダメージアビリティ"){
 				localStorage.setItem(`${charaName}abillityCd${newIndex}`, abilityArray[abillityName].cd[0] * ((100 - (クイックアビリティ + abilityArray[abillityName].cd[1])) / 100))
 				localStorage.setItem(`${charaName}abillityMotionspeed${newIndex}`, abilityArray[abillityName].motionspeed[0] + abilityArray[abillityName].motionspeed[1] * クイックチャージ)
 				const hit = abilityArray[abillityName].hit
