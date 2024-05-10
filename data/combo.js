@@ -95,6 +95,39 @@ export const combo = {
 			charge: [10, 11],
 			range: [0]
 		},
-	}
+	},
+	"ラカム":{
+		"基本攻撃":{
+			multiplier:[
+				-67
+			],
+			hit:[
+				3
+			],
+			cap:[
+				{start: 1, end: 1, max: 4999},
+			],
+			motionspeed: [0.71, 0],
+			finisher: [0],
+			charge: [0],
+			range: [1]
+		},
+		"基本攻撃+ブルスナイプ":{
+			multiplier:[
+				-67, -67, -67, 168, 389
+			],
+			hit:[
+				3, 3, 3, 1, 1
+			],
+			cap:[
+				{start: 1, end: 3, max: 4999},
+				{start: 4, end: 5, max: 39999},
+			],
+			motionspeed: [4.74, 0],
+			finisher: [0],
+			charge: [4, 5],
+			range: [1, 2, 3, 4, 5]
+		},
+	},
 }
 export default combo

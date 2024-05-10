@@ -81,7 +81,7 @@ export const abilityArray = {
 		cd: [45, 0],
 		charge: [0],
 		range: [0],
-		text:"",
+		text:"前方に魔法の矢を降らせる遠距離範囲攻撃。<br>命中時に攻撃DOWN効果を付与する。<br>Class Lvに応じて効果量と効果時間が増加する。",
 		type:"ダメージアビリティ"
 	},
 	"ディスペル":{
@@ -270,6 +270,44 @@ export const abilityArray = {
 		range: [0],
 		text:"範囲内の仲間の瀕死状態を回復する。<br>ボタン長押しで発動位置を指定可能。<br>Class Lvに応じて復活時のHP回復量が増加する。",
 		type:"回復アビリティ"
+	},
+	"スピットファイア":{
+		multiplier:[
+			121, 342
+		],
+		hit:[
+			1, 1
+		],
+		cap:[
+			{start: 1, end: 2, max: 44999},
+		],
+		motionspeed: [1.55, 0],
+		cd: [23, 0],
+		charge: [0],
+		range: [1, 2],
+		text:"前方の敵へ銃撃による遠距離攻撃。<br>命中時の防御DOWN効果を付与する。",
+		type:"ダメージアビリティ"
+	},
+	"バレットヘイル":{
+		multiplier:[
+			1
+		],
+		hit:[
+			15
+		],
+		cap:[
+			{start: 1, end: 2, max: 6999},
+		],
+		motionspeed: [1.56, 0],
+		cd: [48, 10],
+		charge: [0],
+		range: [1],
+		text:"前方に弾丸の雨を降らせる遠距離範囲攻撃。<br>攻撃範囲が広く、長時間連続ヒットする。",
+		type:"ダメージアビリティ"
+	},
+	"ダブルタップ":{
+		text:"一定時間□攻撃のヒット数が増加する",
+		type:"強化アビリティ"
 	},
 }
 export default abilityArray

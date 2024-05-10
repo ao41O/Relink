@@ -1730,6 +1730,20 @@ export const skillArray = {
 		],
 		type:"専用",
 		text:"Class Lvが高くなるほど攻撃力と防御力が上昇する<br>ジータ専用"
+	},
+	"操舵士の導き":{
+		lv:[
+			1
+		],
+		type:"専用",
+		text:"□攻撃が3連射から4連射になる<br>ラカム専用"
+	},
+	"操舵士の意地":{
+		lv:[
+			25
+		],
+		type:"専用",
+		text:"△攻撃の射程距離が伸び<br>さらにダメージ上限が上昇する<br>ラカム専用"
 	}
 }
 export default skillArray
