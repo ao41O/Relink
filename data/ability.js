@@ -102,172 +102,42 @@ export const abilityArray = {
 		type:"ダメージアビリティ"
 	},
 	"ミゼラブルミスト":{
-		multiplier:[
-			0
-		],
-		hit:[
-			0
-		],
-		cap:[
-			{start: 0, end: 0, max: 14999},
-		],
-		motionspeed: [0, 0],
-		cd: [0, 0],
-		charge: [0],
-		range: [0],
 		text:"範囲内の敵に攻撃DOWN/防御DOWN効果を付与する。<br>ボタン長押しで発動位置を指定可能。<br>Class Lvに応じて効果量と効果時間が増加する。",
 		type:"弱体アビリティ"
 	},
 	"ディレイ":{
-		multiplier:[
-			0
-		],
-		hit:[
-			0
-		],
-		cap:[
-			{start: 0, end: 0, max: 14999},
-		],
-		motionspeed: [0, 0],
-		cd: [0, 0],
-		charge: [0],
-		range: [0],
 		text:"範囲内の敵にスロウ効果を付与する。<br>ボタン長押しで発動位置を指定可能。<br>Class Lvに応じて効果時間が増加する。",
 		type:"弱体アビリティ"
 	},
 	"ファランクス":{
-		multiplier:[
-			0
-		],
-		hit:[
-			0
-		],
-		cap:[
-			{start: 0, end: 0, max: 14999},
-		],
-		motionspeed: [0, 0],
-		cd: [0, 0],
-		charge: [0],
-		range: [0],
 		text:"自分と近くの仲間に被ダメージカット効果を付与する。<br>Class Lvに応じて効果量と効果時間が増加する。",
 		type:"強化アビリティ"
 	},
 	"レイジ":{
-		multiplier:[
-			0
-		],
-		hit:[
-			0
-		],
-		cap:[
-			{start: 0, end: 0, max: 14999},
-		],
-		motionspeed: [0, 0],
-		cd: [0, 0],
-		charge: [0],
-		range: [0],
 		text:"自分と仲間全員に攻撃UP効果を付与する。<br>Class Lvに応じて効果量と効果時間が増加する。",
 		type:"強化アビリティ"
 	},
 	"ベール":{
-		multiplier:[
-			0
-		],
-		hit:[
-			0
-		],
-		cap:[
-			{start: 0, end: 0, max: 14999},
-		],
-		motionspeed: [0, 0],
-		cd: [0, 0],
-		charge: [0],
-		range: [0],
 		text:"自分と仲間全員に弱体無効の効果を付与する。<br>Class Lvに応じて効果時間が増加する。",
 		type:"強化アビリティ"
 	},
 	"コンダクション":{
-		multiplier:[
-			0
-		],
-		hit:[
-			0
-		],
-		cap:[
-			{start: 0, end: 0, max: 14999},
-		],
-		motionspeed: [0, 0],
-		cd: [0, 0],
-		charge: [0],
-		range: [0],
 		text:"自分の奥義ゲージを仲間全員に分配する。<br>Class Lvに応じて奥義ゲージ増加量が上昇する。",
 		type:"強化アビリティ"
 	},
 	"かばう":{
-		multiplier:[
-			0
-		],
-		hit:[
-			0
-		],
-		cap:[
-			{start: 0, end: 0, max: 14999},
-		],
-		motionspeed: [0, 0],
-		cd: [0, 0],
-		charge: [0],
-		range: [0],
 		text:"仲間全員への攻撃を代わりに引き受けつつ、<br>ジ便に防御UP効果を付与する。<br>Class Lvに応じて効果量と効果時間が増加する。",
 		type:"強化アビリティ"
 	},
 	"ヒールオール":{
-		multiplier:[
-			0
-		],
-		hit:[
-			0
-		],
-		cap:[
-			{start: 0, end: 0, max: 14999},
-		],
-		motionspeed: [0, 0],
-		cd: [0, 0],
-		charge: [0],
-		range: [0],
 		text:"範囲内の仲間のHPを回復する。<br>ボタン長押しで発動位置を指定可能。<br>Class Lvに応じて回復量が増加する",
 		type:"回復アビリティ"
 	},
 	"クリアオール":{
-		multiplier:[
-			0
-		],
-		hit:[
-			0
-		],
-		cap:[
-			{start: 0, end: 0, max: 14999},
-		],
-		motionspeed: [0, 0],
-		cd: [0, 0],
-		charge: [0],
-		range: [0],
 		text:"範囲内の仲間の弱体効果をすべて解除し、再生効果を付与する。<br>ボタン長押しで発動位置を指定可能。<br>Class Lvに応じて再生効果の回復量が上昇する。",
 		type:"回復アビリティ"
 	},
 	"リヴァイヴ":{
-		multiplier:[
-			0
-		],
-		hit:[
-			0
-		],
-		cap:[
-			{start: 0, end: 0, max: 14999},
-		],
-		motionspeed: [0, 0],
-		cd: [0, 0],
-		charge: [0],
-		range: [0],
 		text:"範囲内の仲間の瀕死状態を回復する。<br>ボタン長押しで発動位置を指定可能。<br>Class Lvに応じて復活時のHP回復量が増加する。",
 		type:"回復アビリティ"
 	},
