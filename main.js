@@ -295,7 +295,7 @@ class Html{
 		})
 		let textBox
 		if(typeName.includes("sigil") || typeName.includes("wrightstone")){
-			textBox = `<input style="width: 5%; height: ${buttonHeight}%; box-sizing: border-box; margin:0.3% 0.5%" id="${charaName+typeName}" type="text" value="${textValue}">`
+			textBox = `<input style="width: 5%; height: ${buttonHeight}%; box-sizing: border-box; margin:0.3% 0.5%" id="${charaName+typeName}" type="number" value="${textValue}">`
 		}else{
 			textBox = ""
 		}
@@ -766,7 +766,7 @@ class Html{
 				Build.damage(charaName, "html")
 			})
 		})
-		return `<input id="${charaName+typeName}" type="text" value="${textValue}" style="width: ${size}%">`
+		return `<input id="${charaName+typeName}" type="number" value="${textValue}" style="width: ${size}%">`
 	}
 }
 
@@ -1058,7 +1058,7 @@ class Build{
 							</label>
 							<label style="position: relative; top: 1px; width: 12%;">
 								覚醒
-								<input id="${charaName}awakend" type="text" value="" style="position: relative; top: 1px; width: 40%">
+								<input id="${charaName}awakend" type="number" value="" style="position: relative; top: 1px; width: 40%">
 							</label>
 							<div style="position: relative; top: 1px; width: 10%; color: #267a67;">
 								HP
