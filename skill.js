@@ -1744,13 +1744,13 @@ export const skillArray = {
 		],
 		type:"専用",
 		text:"△攻撃の溜め時間を短縮する<br>イオ専用"
-	}
+	},
 	"魔導士の機転":{
 		lv:[
 			50
 		],
 		type:"専用",
 		text:"高速詠唱で△攻撃を行ったときのダメージ上限が上昇する<br>イオ専用"
-	}
+	},
 }
 export default skillArray
