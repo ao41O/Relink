@@ -870,7 +870,7 @@ class Build{
 		}
 		const totalDamageArray = clacType.map(comboName => {
 			let 魔導士の願い = 0
-			if(charaName === "イオ" && comboName === "スターゲイズ" && parseFloat(localStorage.getItem(charaName+"魔導士の願い")) !== 0){
+			if(charaName === "イオ" && comboName === "コンボ攻撃HOLD + スターゲイズ" && parseFloat(localStorage.getItem(charaName+"魔導士の願い")) !== 0){
 				魔導士の願い = parseFloat(localStorage.getItem(charaName+"魔導士の願い"))
 			}
 			const クイックチャージ = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? (100 - (parseFloat(localStorage.getItem(charaName+"クイックチャージ"))*1.5 + 魔導士の願い)) / 100 : (100 - (0 + 魔導士の願い)) / 100
@@ -888,7 +888,7 @@ class Build{
 			combo[charaName][comboName].cap.forEach(cap => {
 				for (let i = cap.start - 1; i < cap.end; i++) {
 					let 魔導士の機転 = 0
-					if(charaName === "イオ" && comboName === "スターゲイズ" && parseFloat(localStorage.getItem(charaName+"魔導士の機転")) !== 0){
+					if(charaName === "イオ" && comboName === "コンボ攻撃HOLD + スターゲイズ" && parseFloat(localStorage.getItem(charaName+"魔導士の機転")) !== 0 && i + 1 === 4){
 						魔導士の機転 = parseFloat(localStorage.getItem(charaName+"魔導士の機転"))
 					}
 					let 操舵士の意地 = 0
