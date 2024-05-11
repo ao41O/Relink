@@ -109,5 +109,56 @@ export const character = {
 			"コラテラルダメージ"
 		],
 	},
+	"イオ": {
+		element: "光",
+		status:{
+			hp: 3801,
+			atk: 831,
+			skilltree:{
+				hp: 22800,
+				atk: 4682,
+				stun: 111,
+				cri: 30,
+				cridamage: 30,
+				normalcap: 54,
+				skillcap: 54,
+				skilldamage: 19,
+				sbacap: 54,
+				sbadamage: 19,
+			},
+			weaponcollect:{
+					hp: 10000,
+					atk: 600,
+					stun: 19,
+					cri: 5,
+					cridamage: 50,
+					normalcap: 20,
+					skillcap: 20,
+					sbacap: 20
+			},
+		},
+		sigil:[
+			"魔導士の願い",
+			"魔導士の機転"
+		],
+		weapon:[
+			"リトルウィッチセプター",
+			"ガンバンテイン",
+			"トゥプシマティ",
+			"コロッサスケーン・マグナ",
+			"ジェズル",
+			"カドゥケウス"
+		],
+		skill:[
+			"ヒールウィンド",
+			"アイス",
+			"ライトニング",
+			"オーブ",
+			"ファイア",
+			"コンセントレーション",
+			"フラワリーセヴン(未チャージ)",
+			"魔力の渦"
+		],
+	},
 }
 export default character
