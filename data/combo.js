@@ -147,5 +147,70 @@ export const combo = {
 			range: [1, 2, 3, 4]
 		},
 	},
+	"シャルロッテ":{
+		"コンボ攻撃 + コンボフィニッシュ":{
+			multiplier:[
+				0, 43, 28, -3, 196, 268, 403
+			],
+			hit:[
+				1, 1, 2, 2, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 4, max: 6999},
+				{start: 5, end: 7, max: 39999},
+			],
+			motionspeed: [4.49, 0],
+			finisher: [0],
+			charge: [0],
+			range: [0]
+		},
+		"コンボ攻撃 + 派生フィニッシュ(突進)":{
+			multiplier:[
+				0, 43, 28, -3, -37, 328
+			],
+			hit:[
+				1, 1, 2, 2, 3, 1
+			],
+			cap:[
+				{start: 1, end: 4, max: 6999},
+				{start: 5, end: 6, max: 39999},
+			],
+			motionspeed: [4.21, 0],
+			finisher: [0],
+			charge: [0],
+			range: [0]
+		},
+		"コンボ攻撃 + 派生フィニッシュ(落下)":{
+			multiplier:[
+				0, 43, 28, -3, 758
+			],
+			hit:[
+				1, 1, 2, 2, 1
+			],
+			cap:[
+				{start: 1, end: 4, max: 6999},
+				{start: 5, end: 5, max: 39999},
+			],
+			motionspeed: [4.24, 0],
+			finisher: [0],
+			charge: [0],
+			range: [0]
+		},
+		"□ボタン連打":{
+			multiplier:[
+				-3
+			],
+			hit:[
+				2
+			],
+			cap:[
+				{start: 1, end: 1, max: 6999},
+			],
+			motionspeed: [0.42, 0],
+			finisher: [0],
+			charge: [0],
+			range: [0]
+		},
+	},
 }
 export default combo

@@ -160,5 +160,56 @@ export const character = {
 			"魔力の渦"
 		],
 	},
+	"シャルロッテ": {
+		element: "光",
+		status:{
+			hp: 4039,
+			atk: 830,
+			skilltree:{
+				hp: 22550,
+				atk: 4683,
+				stun: 111,
+				cri: 30,
+				cridamage: 30,
+				normalcap: 54,
+				skillcap: 54,
+				skilldamage: 19,
+				sbacap: 54,
+				sbadamage: 19,
+			},
+			weaponcollect:{
+					hp: 10000,
+					atk: 600,
+					stun: 19,
+					cri: 5,
+					cridamage: 50,
+					normalcap: 20,
+					skillcap: 20,
+					sbacap: 20
+			},
+		},
+		sigil:[
+			"聖騎士の剣光",
+			"聖騎士の威風"
+		],
+		weapon:[
+			"クラウ・ソラス",
+			"クレイヴ・ソリッシュ",
+			"シャフレワル",
+			"ウシュムガル",
+			"アロンダイト",
+			"ガラティーン"
+		],
+		skill:[
+			"ケーニヒシルト",
+			"グリッターオンスロート",
+			"ライジングカット",
+			"ヴァリアントスタンス",
+			"セイクリッドチャージ",
+			"インビンシブル",
+			"ソード・オブ・リュミエール",
+			"ホーリーラダー"
+		],
+	},
 }
 export default character
