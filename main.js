@@ -803,6 +803,7 @@ class Build{
 		const 有利属性変換 = parseFloat(localStorage.getItem(charaName+"有利属性変換"))
 		const クイックアビリティ = parseFloat(localStorage.getItem(charaName+"クイックアビリティ"))
 		const ブレイブオーラ = (100 + parseFloat(localStorage.getItem(charaName+"ブレイブオーラ")))/ 100
+		const ブレイブハート = parseFloat(localStorage.getItem(charaName+"ブレイブハート"))
 		const 聖騎士の威風 = (100 + parseFloat(localStorage.getItem(charaName+"聖騎士の威風")))/ 100
 		const 真紅の気焔 = parseFloat(localStorage.getItem(charaName+"真紅の気焔"))
 		let アルベス_フェルマーレ = 1
@@ -810,6 +811,7 @@ class Build{
 			アルベス_フェルマーレ = (100 + (30 + 真紅の気焔))/ 100
 		}
 		const 追撃期待値 = (1 - 追撃 / 100 + 追撃 / 100 * 1.2).toFixed(2)
+		const 与ダメージ強化 = (100 + (ブレイブハート)) / 100
 		
 		const abillitySelectArray = []
 		for (let i = 1; i <= 5; i++) {
@@ -862,7 +864,7 @@ class Build{
 						const skillMultiplier = 背水 * 渾身 * 捨て身 * アビリティダメージ * コンボボーナス * chargeattack * rangeattack * 弱体状態特効 * オーバードライブ特効 * ブレイク特効 * 先制 * 修羅 * ガードリベンジ * 回避リベンジ * 裸一貫 * ブレイブオーラ * 聖騎士の威風 * アルベス_フェルマーレ
 						const damageMultiplier = ((100 + abilityArray[abillityName].multiplier[i]) / 100)
 						let product = charaAtk * damageMultiplier * criAverage * skillMultiplier
-						let newValue = Math.round(Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * hit[i])
+						let newValue = Math.round(Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * 与ダメージ強化 * hit[i])
 						totalDamage += newValue
 						localStorage.setItem(`${charaName}abillityDamage${newIndex}`, totalDamage)
 					}
@@ -929,7 +931,7 @@ class Build{
 					const criAverage = (1 - criticalChance / 100 + criticalChance / 100 * (1 + (criDamage / 100))).toFixed(2)
 					const damageMultiplier = ((100 + combo[charaName][comboName].multiplier[i]) / 100)
 					let product = charaAtk * damageMultiplier * criAverage * skillMultiplier
-					let newValue = Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * (hit[i] + 操舵士の導きhit) / motionspeed
+					let newValue = Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * 与ダメージ強化 * (hit[i] + 操舵士の導きhit) / motionspeed
 					totalDamage += newValue
 				}
 			})

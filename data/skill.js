@@ -1731,6 +1731,13 @@ export const skillArray = {
 		type:"専用",
 		text:"Class Lvが高くなるほど攻撃力と防御力が上昇する<br>ジータ専用"
 	},
+	"ブレイブハート":{
+		lv:[
+			10
+		],
+		type:"専用",
+		text:"Class Lvが上昇するたびに与ダメージが強化される<br>Class LvがⅠに戻るまで効果は継続する<br>ジータ専用"
+	},
 	"操舵士の導き":{
 		lv:[
 			1
