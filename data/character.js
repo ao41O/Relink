@@ -211,5 +211,56 @@ export const character = {
 			"ホーリーラダー"
 		],
 	},
+	"ゼタ": {
+		element: "火",
+		status:{
+			hp: 3933,
+			atk: 893,
+			skilltree:{
+				hp: 22650,
+				atk: 4620,
+				stun: 111,
+				cri: 30,
+				cridamage: 30,
+				normalcap: 54,
+				skillcap: 54,
+				skilldamage: 19,
+				sbacap: 54,
+				sbadamage: 19,
+			},
+			weaponcollect:{
+					hp: 10000,
+					atk: 600,
+					stun: 19,
+					cri: 5,
+					cridamage: 50,
+					normalcap: 20,
+					skillcap: 20,
+					sbacap: 20
+			},
+		},
+		sigil:[
+			"真紅の気焔",
+			"真紅の翔舞"
+		],
+		weapon:[
+			"アルベスの槍",
+			"ブリューナク",
+			"黄龍槍",
+			"グラーシーザー",
+			"サンスポットスピア",
+			"ゲイボルグ"
+		],
+		skill:[
+			"インフィニット・ワンダーズ",
+			"レイン・オブ・フューリー",
+			"アルベスの槍",
+			"シグノ・ドライブ",
+			"ピニオン",
+			"フレイムス・オブ・リヴェンジ",
+			"サウザンドフレイム",
+			"レルムス・マジェスティ"
+		],
+	},
 }
 export default character

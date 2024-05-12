@@ -212,5 +212,57 @@ export const combo = {
 			range: [0]
 		},
 	},
+	"ゼタ":{
+		"エアリアルコンボ":{
+			multiplier:[
+				216, 305, 356, 403, 487, 30, 47, 64, 82, 83
+			],
+			hit:[
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 5, max: 44999},
+				{start: 6, end: 10, max: 22999},
+			],
+			motionspeed: [5.91, 0],
+			finisher: [0],
+			charge: [0],
+			range: [0]
+		},
+		"コンボ + アルベス・スウィング":{
+			multiplier:[
+				26, 88, 161, 91, 216, 305, 356, 30, 47, 64, 123, 3114
+			],
+			hit:[
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 4, max: 22999},
+				{start: 5, end: 7, max: 44999},
+				{start: 8, end: 10, max: 22999},
+				{start: 11, end: 12, max: 99999},
+			],
+			motionspeed: [8.036, 0],
+			finisher: [11, 12],
+			charge: [0],
+			range: [0]
+		},
+		"コンボ + エアリアルフィニッシュ":{
+			multiplier:[
+				26, 88, 161, 91, 40, 879
+			],
+			hit:[
+				1, 1, 1, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 4, max: 22999},
+				{start: 5, end: 6, max: 59999},
+			],
+			motionspeed: [4.23, 0],
+			finisher: [5, 6],
+			charge: [0],
+			range: [0]
+		},
+	},
 }
 export default combo
