@@ -804,14 +804,20 @@ class Build{
 		const クイックアビリティ = parseFloat(localStorage.getItem(charaName+"クイックアビリティ"))
 		const ブレイブオーラ = (100 + parseFloat(localStorage.getItem(charaName+"ブレイブオーラ")))/ 100
 		const ブレイブハート = parseFloat(localStorage.getItem(charaName+"ブレイブハート"))
+		const 操舵士の戦気 = parseFloat(localStorage.getItem(charaName+"操舵士の戦気"))
+		const 魔導士の戦気 = parseFloat(localStorage.getItem(charaName+"魔導士の戦気"))
 		const 聖騎士の威風 = (100 + parseFloat(localStorage.getItem(charaName+"聖騎士の威風")))/ 100
+		const 聖騎士の戦気 = parseFloat(localStorage.getItem(charaName+"聖騎士の戦気"))
 		const 真紅の気焔 = parseFloat(localStorage.getItem(charaName+"真紅の気焔"))
+		const 真紅の戦気 = parseFloat(localStorage.getItem(charaName+"真紅の戦気"))
+		
+		
 		let アルベス_フェルマーレ = 1
 		if(charaName === "ゼタ"){
 			アルベス_フェルマーレ = (100 + (30 + 真紅の気焔))/ 100
 		}
 		const 追撃期待値 = (1 - 追撃 / 100 + 追撃 / 100 * 1.2).toFixed(2)
-		const 与ダメージ強化 = (100 + (ブレイブハート)) / 100
+		const 与ダメージ強化 = (100 + (ブレイブハート + 操舵士の戦気 + 真紅の戦気 + 聖騎士の戦気)) / 100
 		
 		const abillitySelectArray = []
 		for (let i = 1; i <= 5; i++) {
@@ -858,8 +864,12 @@ class Build{
 						if (abilityArray[abillityName].range.includes(i + 1)) {
 							rangeattack = 集中砲火
 						}
+						let 真紅の戦気cri = 0
+						if(真紅の戦気 !== 0){
+							真紅の戦気cri = 100
+						}
 						const damageCap = (100 + parseFloat(localStorage.getItem(charaName+"ダメージ上限")) + parseFloat(localStorage.getItem(charaName+"紙一重")) + parseFloat(localStorage.getItem(charaName+"ベータ・コード")) + parseFloat(localStorage.getItem(charaName+"ガンマ・コード")) + カタストロフィ + parseFloat(localStorage.getItem(charaName+"weaponcollectnormalcap")) + parseFloat(localStorage.getItem(charaName+"skilltreenormalcap")) + parseFloat(localStorage.getItem(charaName+"limitbreaknormalcap"))) / 100
-						const criticalChance = Math.min(100, parseFloat(localStorage.getItem(charaName+"cri")) + luckycharge)
+						const criticalChance = Math.min(100, parseFloat(localStorage.getItem(charaName+"cri")) + luckycharge + 真紅の戦気cri)
 						const criAverage = (1 - criticalChance / 100 + criticalChance / 100 * (1 + (criDamage / 100))).toFixed(2)
 						const skillMultiplier = 背水 * 渾身 * 捨て身 * アビリティダメージ * コンボボーナス * chargeattack * rangeattack * 弱体状態特効 * オーバードライブ特効 * ブレイク特効 * 先制 * 修羅 * ガードリベンジ * 回避リベンジ * 裸一貫 * ブレイブオーラ * 聖騎士の威風 * アルベス_フェルマーレ
 						const damageMultiplier = ((100 + abilityArray[abillityName].multiplier[i]) / 100)
