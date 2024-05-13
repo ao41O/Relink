@@ -867,7 +867,7 @@ class Build{
 					二王の諍い = 0
 				}
 				const クイックチャージ = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? ((100 - (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) * 1.5 + 魔眼の戦気)) / 100) : (100 - (0 + 魔眼の戦気)) / 100
-				localStorage.setItem(`${charaName}abillityCd${newIndex}`, abilityArray[abillityName].cd[0] * (二王の諍い * (100 - (クイックアビリティ + abilityArray[abillityName].cd[1])) / 100))
+				localStorage.setItem(`${charaName}abillityCd${newIndex}`, abilityArray[abillityName].cd[0] * ((100 - 二王の諍い * (クイックアビリティ + abilityArray[abillityName].cd[1])) / 100))
 				localStorage.setItem(`${charaName}abillityMotionspeed${newIndex}`, abilityArray[abillityName].motionspeed[0] + abilityArray[abillityName].motionspeed[1] * クイックチャージ)
 				const hit = abilityArray[abillityName].hit
 				let totalDamage = 0
