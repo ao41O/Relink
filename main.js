@@ -823,7 +823,6 @@ class Build{
 		const 真紅の戦気 = parseFloat(localStorage.getItem(charaName+"真紅の戦気"))
 		const 魔眼の万箭 = parseFloat(localStorage.getItem(charaName+"魔眼の万箭"))
 		const 魔眼の戦気 = parseFloat(localStorage.getItem(charaName+"魔眼の戦気"))
-		console.log(魔眼の戦気)
 		let アルベス_フェルマーレ = 1
 		if(charaName === "ゼタ"){
 			アルベス_フェルマーレ = (100 + (30 + 真紅の気焔))/ 100
@@ -863,9 +862,9 @@ class Build{
 			localStorage.setItem(`${charaName}abillityCd${newIndex}`, 0)
 			localStorage.setItem(`${charaName}abillityMotionspeed${newIndex}`, 0)
 			if(abillityName !== null && abillityName !== undefined && abillityName !== "スキル選択" && abilityArray[abillityName].type === "ダメージアビリティ"){
-				const クイックチャージ = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? ((100 - parseFloat(localStorage.getItem(charaName+"クイックチャージ"))*1.5) / 100) : 1
+				const クイックチャージ = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? ((100 - (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) * 1.5 + 魔眼の戦気)) / 100) : (100 - (0 + 魔眼の戦気)) / 100
 				localStorage.setItem(`${charaName}abillityCd${newIndex}`, abilityArray[abillityName].cd[0] * ((100 - (クイックアビリティ + abilityArray[abillityName].cd[1])) / 100))
-				localStorage.setItem(`${charaName}abillityMotionspeed${newIndex}`, abilityArray[abillityName].motionspeed[0] + abilityArray[abillityName].motionspeed[1] * (クイックチャージ + 魔眼の戦気))
+				localStorage.setItem(`${charaName}abillityMotionspeed${newIndex}`, abilityArray[abillityName].motionspeed[0] + abilityArray[abillityName].motionspeed[1] * クイックチャージ)
 				const hit = abilityArray[abillityName].hit
 				let totalDamage = 0
 				abilityArray[abillityName].cap.forEach(cap => {
@@ -907,7 +906,7 @@ class Build{
 			if(charaName === "イオ" && comboName === "コンボ攻撃HOLD + スターゲイズ" && parseFloat(localStorage.getItem(charaName+"魔導士の願い")) !== 0){
 				魔導士の願い = parseFloat(localStorage.getItem(charaName+"魔導士の願い"))
 			}
-			const クイックチャージ = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? (100 - (parseFloat(localStorage.getItem(charaName+"クイックチャージ"))*1.5 + 魔導士の願い)) / 100 : (100 - (0 + 魔導士の願い)) / 100
+			const クイックチャージ = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? (100 - (parseFloat(localStorage.getItem(charaName+"クイックチャージ"))*1.5 + 魔導士の願い + 魔眼の戦気)) / 100 : (100 - (0 + 魔導士の願い + 魔眼の戦気)) / 100
 			const hit = combo[charaName][comboName].hit
 			let 操舵士の導き = 0
 			if(charaName === "ラカム" && localStorage.getItem(charaName+"操舵士の導き") === "1"){
@@ -917,7 +916,7 @@ class Build{
 					操舵士の導き = 0.14 * 3
 				}
 			}
-			const motionspeed = (combo[charaName][comboName].motionspeed[0] + combo[charaName][comboName].motionspeed[1] * (クイックチャージ + 魔眼の戦気)) + 操舵士の導き
+			const motionspeed = (combo[charaName][comboName].motionspeed[0] + combo[charaName][comboName].motionspeed[1] * クイックチャージ) + 操舵士の導き
 			let totalDamage = 0
 			combo[charaName][comboName].cap.forEach(cap => {
 				for (let i = cap.start - 1; i < cap.end; i++) {
