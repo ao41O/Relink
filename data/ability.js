@@ -625,7 +625,7 @@ export const abilityArray = {
 	},
 	"二王の諍い":{
 		multiplier:[
-			4090, 287
+			4090, 299
 		],
 		hit:[
 			1, 9
