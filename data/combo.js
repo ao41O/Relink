@@ -296,7 +296,7 @@ export const combo = {
 			finisher: [2, 3],
 			charge: [2],
 			range: [1, 2, 3],
-			default: 1
+			default: 9312
 		},
 		"コンボB攻撃":{
 			multiplier:[
@@ -313,7 +313,7 @@ export const combo = {
 			finisher: [2, 3],
 			charge: [2],
 			range: [1, 2, 3],
-			default: 1
+			default: 36489
 		},
 		"コンボC攻撃":{
 			multiplier:[
@@ -330,7 +330,7 @@ export const combo = {
 			finisher: [2, 3],
 			charge: [2],
 			range: [1, 2, 3],
-			default: 1
+			default: 16520
 		},
 	},
 }
