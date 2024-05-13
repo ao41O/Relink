@@ -1118,7 +1118,6 @@ class Build{
 							</label>
 							<label style="position: relative; top: 1px; width: 12%;">
 								覚醒
-								<input id="${charaName}awakend" type="number" value="" style="position: relative; top: 1px; width: 40%">
 							</label>
 							<div style="position: relative; top: 1px; width: 10%; color: #267a67;">
 								HP
