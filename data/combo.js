@@ -315,7 +315,7 @@ export const combo = {
 			range: [1, 2, 3],
 			default: 1
 		},
-		"コンボB攻撃":{
+		"コンボC攻撃":{
 			multiplier:[
 				-44, 426, 564
 			],
