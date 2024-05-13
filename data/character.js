@@ -276,7 +276,7 @@ export const character = {
 				hp: 23270,
 				atk: 4942,
 				stun: 150,
-				cri: 55,
+				cri: 45,
 				cridamage: 80,
 				normalcap: 74,
 				skillcap: 74,
