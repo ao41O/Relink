@@ -982,6 +982,7 @@ class Build{
 					</div>`
 				}).join("")
 			}).join("")
+			localStorage.setItem(charaName+"damagelist", JSON.stringify(totalDamageArray))
 		}else if(eventType === "clac" || eventType === "skillclac"){
 			newArray.push({[array]:Object.values(totalDamageArray[0])})
 		}
@@ -1018,13 +1019,44 @@ class Build{
 			}
 		})
 	}
-
+	
+	static localDamage(charaName){
+		if(JSON.parse(localStorage.getItem(charaName+"damagelist")) !== null){
+			const damageList = JSON.parse(localStorage.getItem(charaName+"damagelist"))
+			document.getElementById(charaName+"damage").innerHTML = damageList.map(obj => {
+				return Object.entries(obj).map(([key, value]) => {
+					return `<div style="width: 58%; border-bottom:1px solid;">
+						${key}
+					</div>
+					<div style="width: 40%; margin-left:2%; border-bottom:1px solid;">
+						${value}
+					</div>`
+				}).join("")
+			}).join("")
+		}else{
+			const sortedEntries = Object.entries(combo[charaName]).sort(([, a], [, b]) => b.default - a.default)
+			document.getElementById(charaName + "damage").innerHTML = sortedEntries.map(([charaKey, obj]) => {
+				return Object.entries(obj).map(([key, value]) => {
+					if(key === "default"){
+						return `<div style="width: 58%; border-bottom:1px solid;">
+							${charaKey}
+						</div>
+						<div style="width: 40%; margin-left:2%; border-bottom:1px solid;">
+							${value}
+						</div>`
+					}
+				}).join("")
+			}).join("")
+			localStorage.setItem(charaName+"topsort", JSON.stringify([sortedEntries[0][0]]))
+		}
+	}
+	
 	static export(){
 		document.getElementById("main").innerHTML = Object.keys(character).map(charaName => {
 			window.addEventListener("load", () => {
 				Build.skill(charaName)
 				Update.status(charaName)
-				Build.damage(charaName, "html")
+				Build.localDamage(charaName)
 			})
 			return`
 			<details>

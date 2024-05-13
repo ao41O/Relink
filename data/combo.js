@@ -14,7 +14,8 @@ export const combo = {
 			motionspeed: [2.18, 0],
 			finisher: [2, 3],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 17624
 		},
 		"コンボB":{
 			multiplier:[
@@ -30,7 +31,8 @@ export const combo = {
 			motionspeed: [3.26, 0],
 			finisher: [3, 4],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 18648
 		},
 		"コンボC":{
 			multiplier:[
@@ -46,7 +48,8 @@ export const combo = {
 			motionspeed: [4.23, 0],
 			finisher: [5, 6],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 13483
 		},
 		"コンボD":{
 			multiplier:[
@@ -62,7 +65,8 @@ export const combo = {
 			motionspeed: [4.71, 0],
 			finisher: [7, 8, 9],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 19468
 		},
 		"パワーレイズ":{
 			multiplier:[
@@ -77,7 +81,8 @@ export const combo = {
 			motionspeed: [3.06, 2],
 			finisher: [0],
 			charge: [1, 2],
-			range: [0]
+			range: [0],
+			default: 15929
 		},
 		"コンボD＋パワーレイズ":{
 			multiplier:[
@@ -93,7 +98,8 @@ export const combo = {
 			motionspeed: [7.43, 1],
 			finisher: [7, 8, 9],
 			charge: [10, 11],
-			range: [0]
+			range: [0],
+			default: 20438
 		},
 	},
 	"ラカム":{
@@ -110,7 +116,8 @@ export const combo = {
 			motionspeed: [0.71, 0],
 			finisher: [0],
 			charge: [0],
-			range: [1]
+			range: [1],
+			default: 12775
 		},
 		"基本攻撃+ブルスナイプ":{
 			multiplier:[
@@ -126,7 +133,8 @@ export const combo = {
 			motionspeed: [4.74, 0],
 			finisher: [0],
 			charge: [4, 5],
-			range: [1, 2, 3, 4, 5]
+			range: [1, 2, 3, 4, 5],
+			default: 20373
 		},
 	},
 	"イオ":{
@@ -144,7 +152,8 @@ export const combo = {
 			motionspeed: [10.15, 6.83],
 			finisher: [0],
 			charge: [1, 2, 3, 4],
-			range: [1, 2, 3, 4]
+			range: [1, 2, 3, 4],
+			default: 22346
 		},
 	},
 	"シャルロッテ":{
@@ -162,7 +171,8 @@ export const combo = {
 			motionspeed: [4.49, 0],
 			finisher: [0],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 37777
 		},
 		"コンボ攻撃 + 派生フィニッシュ(突進)":{
 			multiplier:[
@@ -178,7 +188,8 @@ export const combo = {
 			motionspeed: [4.21, 0],
 			finisher: [0],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 28310
 		},
 		"コンボ攻撃 + 派生フィニッシュ(落下)":{
 			multiplier:[
@@ -194,7 +205,8 @@ export const combo = {
 			motionspeed: [4.24, 0],
 			finisher: [0],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 31181
 		},
 		"□ボタン連打":{
 			multiplier:[
@@ -209,7 +221,8 @@ export const combo = {
 			motionspeed: [0.42, 0],
 			finisher: [0],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 42354
 		},
 	},
 	"ゼタ":{
@@ -227,7 +240,8 @@ export const combo = {
 			motionspeed: [5.91, 0],
 			finisher: [0],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 61982
 		},
 		"コンボ + アルベス・スウィング":{
 			multiplier:[
@@ -245,7 +259,8 @@ export const combo = {
 			motionspeed: [8.036, 0],
 			finisher: [11, 12],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 60324
 		},
 		"コンボ + エアリアルフィニッシュ":{
 			multiplier:[
@@ -261,7 +276,8 @@ export const combo = {
 			motionspeed: [4.23, 0],
 			finisher: [5, 6],
 			charge: [0],
-			range: [0]
+			range: [0],
+			default: 50212
 		},
 	},
 }
