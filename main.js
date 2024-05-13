@@ -1042,7 +1042,7 @@ class Build{
 							${charaKey}
 						</div>
 						<div style="width: 40%; margin-left:2%; border-bottom:1px solid;">
-							${value}
+							${Intl.NumberFormat().format(value)}
 						</div>`
 					}
 				}).join("")
