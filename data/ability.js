@@ -536,13 +536,13 @@ export const abilityArray = {
 	},
 	"ディプラヴィティ":{
 		multiplier:[
-			-30, 0
+			-58
 		],
 		hit:[
-			45, 1
+			46
 		],
 		cap:[
-			{start: 1, end: 2, max: 3999},
+			{start: 1, end: 1, max: 3999},
 		],
 		motionspeed: [5.28, 0],
 		cd: [175, 0],
@@ -553,7 +553,7 @@ export const abilityArray = {
 	},
 	"クリンチャー":{
 		multiplier:[
-			2417
+			1356
 		],
 		hit:[
 			1
@@ -570,7 +570,7 @@ export const abilityArray = {
 	},
 	"ヴェリエンス":{
 		multiplier:[
-			229
+			100
 		],
 		hit:[
 			3
@@ -587,7 +587,7 @@ export const abilityArray = {
 	},
 	"フェアタイレン":{
 		multiplier:[
-			43
+			-13
 		],
 		hit:[
 			18
@@ -604,7 +604,7 @@ export const abilityArray = {
 	},
 	"キリングレイン":{
 		multiplier:[
-			249
+			118
 		],
 		hit:[
 			20
@@ -625,7 +625,7 @@ export const abilityArray = {
 	},
 	"二王の諍い":{
 		multiplier:[
-			6875, 546
+			4090, 287
 		],
 		hit:[
 			1, 9

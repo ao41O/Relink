@@ -283,7 +283,7 @@ export const combo = {
 	"ソーン":{
 		"コンボA攻撃":{
 			multiplier:[
-				-44, 167, 225
+				-65, 45, 98
 			],
 			hit:[
 				1, 1, 1
@@ -300,7 +300,7 @@ export const combo = {
 		},
 		"コンボB攻撃":{
 			multiplier:[
-				-44, 2, -42
+				-65, -42, -67
 			],
 			hit:[
 				3, 18, 18
@@ -317,7 +317,7 @@ export const combo = {
 		},
 		"コンボC攻撃":{
 			multiplier:[
-				-44, 426, 564
+				-65, 201, 275
 			],
 			hit:[
 				6, 1, 1
