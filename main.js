@@ -636,7 +636,13 @@ class Html{
 				for(var i = 0; i < elements.length; i++) {
 					if(elements[i].checked) {
 						const radioValue = elements[i].value
-						if(radioValue === "息吹"){
+						if(charaName === "ソーン" || charaName === "シエテ"){
+							if(typeName === "weapon" && weapon[radioValue].type === "防御特化"){
+								localStorage.setItem(charaName+typeName, JSON.stringify([{金剛:25},{剛健:15},{クイックアビリティ:5}]))
+								localStorage.setItem(charaName+typeName+"name", radioValue)
+								document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
+							}
+						}else if(radioValue === "息吹"){
 							localStorage.setItem(charaName+typeName+"name", "クリティカル確率")
 							localStorage.setItem(charaName+typeName+"lv", document.getElementById(charaName+typeName).value)
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = "息吹"
@@ -682,10 +688,6 @@ class Html{
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 						}else if(typeName === "weapon"){
 							localStorage.removeItem(charaName+typeName)
-						}else if(typeName === "weapon" && weapon[radioValue].type === "防御特化2"){
-							localStorage.setItem(charaName+typeName, JSON.stringify([{金剛:25},{剛健:15},{クイックアビリティ:5}]))
-							localStorage.setItem(charaName+typeName+"name", radioValue)
-							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 						}else{
 							localStorage.setItem(charaName+typeName+"name", radioValue)
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")

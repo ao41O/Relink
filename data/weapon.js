@@ -152,7 +152,7 @@ export const weapon = {
 	"アルーフネス":{
 		hp:2575,
 		atk:2003,
-		type:"防御特化2"
+		type:"防御特化"
 	},
 }
 export default weapon
