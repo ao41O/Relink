@@ -682,6 +682,10 @@ class Html{
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 						}else if(typeName === "weapon"){
 							localStorage.removeItem(charaName+typeName)
+						}else if(typeName === "weapon" && weapon[radioValue].type === "防御特化2"){
+							localStorage.setItem(charaName+typeName, JSON.stringify([{金剛:25},{剛健:15},{クイックアビリティ:5}]))
+							localStorage.setItem(charaName+typeName+"name", radioValue)
+							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 						}else{
 							localStorage.setItem(charaName+typeName+"name", radioValue)
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
@@ -1112,10 +1116,10 @@ class Build{
 						</div>
 						<div style="width: 100%; height: 100%; position: relative; top: 10px; display:flex; flex-wrap: wrap; align-content: flex-start">
 							${Html.button_create(character[charaName].weapon, "weapon", "武器選択", charaName, 25, 4)}
-							<label style="position: relative; top: 1px; margin-left:0%; width: 10%;">
+							<div style="position: relative; top: 1px; margin-left:0%; width: 10%;">
 								＋
 								${Html.text(charaName, "plus", 99, 50)}
-							</label>
+							</div>
 							<div style="position: relative; top: 1px; width: 10%; color: #267a67;">
 								HP
 							</div>

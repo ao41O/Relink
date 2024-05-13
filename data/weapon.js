@@ -149,5 +149,10 @@ export const weapon = {
 		atk:6085,
 		type:"究極"
 	},
+	"アルーフネス":{
+		hp:2575,
+		atk:2003,
+		type:"防御特化2"
+	},
 }
 export default weapon

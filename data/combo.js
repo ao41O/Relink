@@ -280,5 +280,58 @@ export const combo = {
 			default: 50212
 		},
 	},
+	"ソーン":{
+		"コンボA攻撃":{
+			multiplier:[
+				-44, 167, 225
+			],
+			hit:[
+				1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 1, max: 3499},
+				{start: 2, end: 3, max: 19999},
+			],
+			motionspeed: [3.62, 0.93],
+			finisher: [2, 3],
+			charge: [2],
+			range: [1, 2, 3],
+			default: 1
+		},
+		"コンボB攻撃":{
+			multiplier:[
+				-44, 2, -42
+			],
+			hit:[
+				3, 18, 18
+			],
+			cap:[
+				{start: 1, end: 1, max: 3499},
+				{start: 2, end: 3, max: 3499},
+			],
+			motionspeed: [3.90, 0.93],
+			finisher: [2, 3],
+			charge: [2],
+			range: [1, 2, 3],
+			default: 1
+		},
+		"コンボB攻撃":{
+			multiplier:[
+				-44, 426, 564
+			],
+			hit:[
+				6, 1, 1
+			],
+			cap:[
+				{start: 1, end: 1, max: 3499},
+				{start: 2, end: 3, max: 34999},
+			],
+			motionspeed: [5.11, 0.93],
+			finisher: [2, 3],
+			charge: [2],
+			range: [1, 2, 3],
+			default: 1
+		},
+	},
 }
 export default combo

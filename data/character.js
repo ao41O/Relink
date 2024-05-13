@@ -267,5 +267,41 @@ export const character = {
 			"レルムス・マジェスティ"
 		],
 	},
+	"ソーン": {
+		element: "光",
+		status:{
+			hp: 2252,
+			atk: 374,
+			skilltree:{
+				hp: 23270,
+				atk: 4942,
+				stun: 111,
+				cri: 30,
+				cridamage: 30,
+				normalcap: 54,
+				skillcap: 54,
+				skilldamage: 19,
+				sbacap: 54,
+				sbadamage: 19,
+			},
+			weaponcollect:{
+					hp: 0,
+					atk: 0,
+					stun: 0,
+					cri: 0,
+					cridamage: 0,
+					normalcap: 0,
+					skillcap: 0,
+					sbacap: 0
+			},
+		},
+		sigil:[
+		],
+		weapon:[
+			"アルーフネス",
+		],
+		skill:[
+		],
+	},
 }
 export default character
