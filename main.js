@@ -641,12 +641,10 @@ class Html{
 				for(var i = 0; i < elements.length; i++) {
 					if(elements[i].checked) {
 						const radioValue = elements[i].value
-						if(charaName === "ソーン" || charaName === "シエテ"){
-							if(typeName === "weapon" && weapon[radioValue].type === "防御特化"){
-								localStorage.setItem(charaName+typeName, JSON.stringify([{金剛:25},{剛健:15},{クイックアビリティ:5}]))
-								localStorage.setItem(charaName+typeName+"name", radioValue)
-								document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
-							}
+						if(typeName === "weapon" && weapon[radioValue].type === "防御特化" && charaName === "ソーン" || charaName === "シエテ"){
+							localStorage.setItem(charaName+typeName, JSON.stringify([{金剛:25},{剛健:15},{クイックアビリティ:5}]))
+							localStorage.setItem(charaName+typeName+"name", radioValue)
+							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 						}else if(radioValue === "息吹"){
 							localStorage.setItem(charaName+typeName+"name", "クリティカル確率")
 							localStorage.setItem(charaName+typeName+"lv", document.getElementById(charaName+typeName).value)
