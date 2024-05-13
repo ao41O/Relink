@@ -1116,9 +1116,6 @@ class Build{
 								＋
 								${Html.text(charaName, "plus", 99, 50)}
 							</label>
-							<label style="position: relative; top: 1px; width: 12%;">
-								覚醒
-							</label>
 							<div style="position: relative; top: 1px; width: 10%; color: #267a67;">
 								HP
 							</div>
