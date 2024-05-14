@@ -332,6 +332,22 @@ export const combo = {
 			range: [1, 2, 3],
 			default: 12477
 		},
+		"マルチロックショット":{
+			multiplier:[
+				51
+			],
+			hit:[
+				11
+			],
+			cap:[
+				{start: 1, end: 1, max: 12999},
+			],
+			motionspeed: [1.45, 1.05],
+			finisher: [0],
+			charge: [1],
+			range: [1],
+			default: 1
+		},
 	},
 }
 export default combo
