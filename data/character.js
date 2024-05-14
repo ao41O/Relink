@@ -303,6 +303,7 @@ export const character = {
 		],
 		weapon:[
 			"アルーフネス",
+			"真滅・覇王弓",
 		],
 		skill:[
 			"マーキュライト",

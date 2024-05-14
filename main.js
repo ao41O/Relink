@@ -645,6 +645,10 @@ class Html{
 							localStorage.setItem(charaName+typeName, JSON.stringify([{金剛:25},{剛健:15},{クイックアビリティ:5}]))
 							localStorage.setItem(charaName+typeName+"name", radioValue)
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
+						}else if(typeName === "weapon" && weapon[radioValue].type === "覚醒" && charaName === "ソーン" || charaName === "シエテ"){
+							localStorage.setItem(charaName+typeName, JSON.stringify([{攻撃力:25},{追撃:15},{ダメージ上限:5},{ジーン強化:1}]))
+							localStorage.setItem(charaName+typeName+"name", radioValue)
+							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 						}else if(radioValue === "息吹"){
 							localStorage.setItem(charaName+typeName+"name", "クリティカル確率")
 							localStorage.setItem(charaName+typeName+"lv", document.getElementById(charaName+typeName).value)
@@ -670,7 +674,7 @@ class Html{
 							localStorage.setItem(charaName+typeName+"name", radioValue)
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 						}else if(typeName === "weapon" && weapon[radioValue].type === "覚醒"){
-							localStorage.setItem(charaName+typeName, JSON.stringify([{攻撃力:25},{体力:15},{ダメージ上限:5},{ジーン強化:15}]))
+							localStorage.setItem(charaName+typeName, JSON.stringify([{攻撃力:25},{体力:15},{ダメージ上限:5},{ジーン強化:1}]))
 							localStorage.setItem(charaName+typeName+"name", radioValue)
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 						}else if(typeName === "weapon" && weapon[radioValue].type === "弱点ダメージ特化"){
@@ -686,7 +690,7 @@ class Html{
 							localStorage.setItem(charaName+typeName+"name", radioValue)
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 						}else if(typeName === "weapon" && weapon[radioValue].type === "究極"){
-							localStorage.setItem(charaName+typeName, JSON.stringify([{カタストロフィ:25},{リジェネレーション:15},{ダメージ上限:5},{ジーン強化:15}]))
+							localStorage.setItem(charaName+typeName, JSON.stringify([{カタストロフィ:25},{リジェネレーション:15},{ダメージ上限:5},{ジーン強化:1}]))
 							localStorage.setItem(charaName+typeName+"name", radioValue)
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
 						}else if(typeName === "weapon"){
@@ -1125,7 +1129,7 @@ class Build{
 						</div>
 						<div style="width: 100%; height: 100%; position: relative; top: 10px; display:flex; flex-wrap: wrap; align-content: flex-start">
 							${Html.button_create(character[charaName].weapon, "weapon", "武器選択", charaName, 25, 4)}
-							<div style="position: relative; top: 1px; margin-left:0%; width: 9%;">
+							<div style="position: relative; top: 1px; margin-left:0%; width: 10%;">
 								＋
 								${Html.text(charaName, "plus", 99, 50)}
 							</div>

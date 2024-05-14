@@ -154,5 +154,10 @@ export const weapon = {
 		atk:2003,
 		type:"防御特化"
 	},
+	"真滅・覇王弓":{
+		hp:3101,
+		atk:4013,
+		type:"覚醒"
+	},
 }
 export default weapon
