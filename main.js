@@ -825,11 +825,7 @@ class Build{
 		if(charaName === "ゼタ"){
 			アルベス_フェルマーレ = (100 + (30 + 真紅の気焔))/ 100
 		}
-		let addDamage = 0
-		if(charaName === "ソーン" && 魔眼の万箭 !== 0){
-			addDamage = 0.1
-		}
-		const 追撃期待値 = (1 - 追撃 / 100 + 追撃 / 100 * (1.2 + addDamage)).toFixed(2)
+		const 追撃期待値 = ((1 - 追撃 / 100) + 追撃 / 100 * 1.2).toFixed(2)
 		const 与ダメージ強化 = (100 + (ブレイブハート + 操舵士の戦気 + 真紅の戦気 + 聖騎士の戦気 + 魔眼の万箭 + 魔眼の戦気)) / 100
 		
 		const abillitySelectArray = []
@@ -1129,7 +1125,7 @@ class Build{
 						</div>
 						<div style="width: 100%; height: 100%; position: relative; top: 10px; display:flex; flex-wrap: wrap; align-content: flex-start">
 							${Html.button_create(character[charaName].weapon, "weapon", "武器選択", charaName, 25, 4)}
-							<div style="position: relative; top: 1px; margin-left:0%; width: 10%;">
+							<div style="position: relative; top: 1px; margin-left:0%; width: 9%;">
 								＋
 								${Html.text(charaName, "plus", 99, 50)}
 							</div>

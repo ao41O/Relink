@@ -607,7 +607,7 @@ export const abilityArray = {
 			118
 		],
 		hit:[
-			20
+			10
 		],
 		cap:[
 			{start: 1, end: 1, max: 19999},
