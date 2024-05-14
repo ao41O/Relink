@@ -270,8 +270,8 @@ export const character = {
 	"ソーン": {
 		element: "光",
 		status:{
-			hp: 2252,
-			atk: 374,
+			hp: 2892,
+			atk: 539,
 			skilltree:{
 				hp: 23270,
 				atk: 4942,
@@ -285,8 +285,8 @@ export const character = {
 				sbadamage: 19,
 			},
 			weaponcollect:{
-					hp: 0,
-					atk: 0,
+					hp: 9450,
+					atk: 320,
 					stun: 0,
 					cri: 0,
 					cridamage: 0,
