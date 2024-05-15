@@ -270,8 +270,8 @@ export const character = {
 	"ソーン": {
 		element: "光",
 		status:{
-			hp: 2892,
-			atk: 539,
+			hp: 3900,
+			atk: 851,
 			skilltree:{
 				hp: 23270,
 				atk: 4942,
@@ -314,6 +314,41 @@ export const character = {
 			"キリングレイン",
 			"ピアレス",
 			"二王の諍い"
+		],
+	},
+	"シエテ": {
+		element: "風",
+		status:{
+			hp: 3900,
+			atk: 851,
+			skilltree:{
+				hp: 23270,
+				atk: 4942,
+				stun: 150,
+				cri: 45,
+				cridamage: 80,
+				normalcap: 74,
+				skillcap: 74,
+				skilldamage: 19,
+				sbacap: 74,
+				sbadamage: 19,
+			},
+			weaponcollect:{
+					hp: 9450,
+					atk: 320,
+					stun: 0,
+					cri: 0,
+					cridamage: 0,
+					normalcap: 0,
+					skillcap: 0,
+					sbacap: 0
+			},
+		},
+		sigil:[
+		],
+		weapon:[
+		],
+		skill:[
 		],
 	},
 }

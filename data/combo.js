@@ -281,7 +281,7 @@ export const combo = {
 		},
 	},
 	"ソーン":{
-		"コンボA攻撃":{
+		"コンボ攻撃A":{
 			multiplier:[
 				-65, 45, 98
 			],
@@ -296,9 +296,9 @@ export const combo = {
 			finisher: [2, 3],
 			charge: [2],
 			range: [1, 2, 3],
-			default: 7066
+			default: 7711
 		},
-		"コンボB攻撃":{
+		"コンボ攻撃B":{
 			multiplier:[
 				-65, -42, -67
 			],
@@ -313,9 +313,9 @@ export const combo = {
 			finisher: [2, 3],
 			charge: [2],
 			range: [1, 2, 3],
-			default: 30694
+			default: 33494
 		},
-		"コンボC攻撃":{
+		"コンボ攻撃C":{
 			multiplier:[
 				-65, 201, 275
 			],
@@ -330,7 +330,7 @@ export const combo = {
 			finisher: [2, 3],
 			charge: [2],
 			range: [1, 2, 3],
-			default: 12477
+			default: 13615
 		},
 		"マルチロックショット":{
 			multiplier:[
@@ -346,6 +346,239 @@ export const combo = {
 			finisher: [0],
 			charge: [1],
 			range: [1],
+			default: 61667,
+		},
+	"シエテ":{
+		"コンボ攻撃A":{
+			multiplier:[
+				3, -32, 50, -8, 82
+			],
+			hit:[
+				1, 1, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 1, max: 11999},
+				{start: 2, end: 5, max: 34999},
+			],
+			motionspeed: [2.91, 0],
+			finisher: [4, 5],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"コンボ攻撃B":{
+			multiplier:[
+				4, 38, 6, 24, 43, 101
+			],
+			hit:[
+				1, 1, 1, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 1, max: 11999},
+				{start: 3, end: 6, max: 34999},
+			],
+			motionspeed: [3.45, 0],
+			finisher: [5, 6],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"コンボ攻撃C":{
+			multiplier:[
+				4, 38, 15, -1, 64, 192, 168
+			],
+			hit:[
+				1, 1, 2, 2, 2, 1, 1
+			],
+			cap:[
+				{start: 1, end: 3, max: 11999},
+				{start: 4, end: 7, max: 34999},
+			],
+			motionspeed: [5.13, 0],
+			finisher: [6, 7],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"コンボ攻撃D":{
+			multiplier:[
+				-4, 47, 15, 43, 79, 219, 380
+			],
+			hit:[
+				1, 1, 2, 1, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 5, max: 11999},
+				{start: 6, end: 7, max: 34999},
+			],
+			motionspeed: [4.81, 0],
+			finisher: [6, 7],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"剣神コンボ攻撃A":{
+			multiplier:[
+				-40, 13, -22, -7, -13, 19, 84
+			],
+			hit:[
+				4, 1, 1, 1, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 1, max: 5999},
+				{start: 2, end: 2, max: 11999},
+				{start: 3, end: 7, max: 34999},
+			],
+			motionspeed: [3.62, 0],
+			finisher: [6, 7],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"剣神コンボ攻撃B":{
+			multiplier:[
+				-40, -22, -31, -28, 108, 13, 53, -1, 119
+			],
+			hit:[
+				1, 1, 1, 1, 1, 1, 1, 3, 2
+			],
+			cap:[
+				{start: 1, end: 5, max: 5999},
+				{start: 6, end: 8, max: 11999},
+				{start: 9, end: 9, max: 34999},
+			],
+			motionspeed: [3.26, 0],
+			finisher: [9],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"剣神コンボ攻撃C":{
+			multiplier:[
+				
+			],
+			hit:[
+				
+			],
+			cap:[
+				{start: 1, end: 8, max: 5999},
+				{start: 2, end: 2, max: 11999},
+				{start: 3, end: 7, max: 34999},
+			],
+			motionspeed: [5.41, 0],
+			finisher: [0],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"剣神コンボ攻撃D":{
+			multiplier:[
+				
+			],
+			hit:[
+				
+			],
+			cap:[
+				{start: 1, end: 1, max: 5999},
+				{start: 2, end: 2, max: 11999},
+				{start: 3, end: 7, max: 34999},
+			],
+			motionspeed: [3.62, 0],
+			finisher: [0],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"コンボ攻撃E":{
+			multiplier:[
+				
+			],
+			hit:[
+				
+			],
+			cap:[
+				{start: 1, end: 1, max: 11999},
+				{start: 1, end: 1, max: 34999},
+				{start: 1, end: 1, max: 74999},
+			],
+			motionspeed: [3.62, 0],
+			finisher: [0],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+	},
+	"剣神":{
+		"剣神コンボ攻撃A":{
+			multiplier:[
+				-40, 13, -22, -7, -13, 19, 84
+			],
+			hit:[
+				4, 1, 1, 1, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 1, max: 5999},
+				{start: 2, end: 2, max: 11999},
+				{start: 3, end: 7, max: 34999},
+			],
+			motionspeed: [3.62, 0],
+			finisher: [6, 7],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"剣神コンボ攻撃B":{
+			multiplier:[
+				-40, -22, -31, -28, 108, 13, 53, -1, 119
+			],
+			hit:[
+				1, 1, 1, 1, 1, 1, 1, 3, 2
+			],
+			cap:[
+				{start: 1, end: 5, max: 5999},
+				{start: 6, end: 8, max: 11999},
+				{start: 9, end: 9, max: 34999},
+			],
+			motionspeed: [3.26, 0],
+			finisher: [9],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"剣神コンボ攻撃C":{
+			multiplier:[
+				-43, -24, -49, -52, 0, 13, 52, 16, -20, -17, -16, -21, 27, 35, 106, 344
+			],
+			hit:[
+				1, 1, 2, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 5, max: 5999},
+				{start: 6, end: 8, max: 11999},
+				{start: 9, end: 16, max: 34999},
+			],
+			motionspeed: [5.41, 0],
+			finisher: [15, 16],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
+		"剣神コンボ攻撃D":{
+			multiplier:[
+				-43, -24, -49, 14, -22, -18, 22, 13, 52, 16, 48, 95, 178, 169, 384
+			],
+			hit:[
+				1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 7, max: 5999},
+				{start: 8, end: 12, max: 11999},
+				{start: 13, end: 15, max: 34999},
+			],
+			motionspeed: [4.93, 0],
+			finisher: [13, 14, 15],
+			charge: [0],
+			range: [0],
 			default: 1
 		},
 	},
