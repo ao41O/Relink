@@ -740,10 +740,6 @@ class Html{
 	}
 	
 	static damage(charaName){
-		let checkbox
-		if(charaName === "シエテ"){
-			checkbox = `<input type="checkbox" id="剣神" value="剣神"><label for="剣神">剣神</label>`
-		}
 		return `
 		<div style="width: 58%; border-bottom:1px solid;">
 			スキル
@@ -752,7 +748,6 @@ class Html{
 			DPS
 		</div>
 		<div id="${charaName}damage" style="width: 100%; display:flex; flex-wrap: wrap"></div>`
-		
 	}
 	
 	static text(charaName, typeName, textValue, size){
@@ -905,9 +900,6 @@ class Build{
 		})
 		
 		let clacType = Object.keys(combo[charaName])
-		if(document.getElementById("剣神").checked){
-			clacType = Object.keys(combo.剣神)
-		}
 		if(eventType === "clac" || eventType === "skillclac" ){
 			clacType = JSON.parse(localStorage.getItem(charaName+"topsort"))
 		}
@@ -1086,9 +1078,6 @@ class Build{
 				Build.skill(charaName)
 				Update.status(charaName)
 				Build.localDamage(charaName)
-				document.getElementById("剣神").addEventListener("change", () => {
-					Build.damage("シエテ", "html")
-				})
 			})
 			return`
 			<details>
