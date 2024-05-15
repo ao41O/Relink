@@ -319,11 +319,11 @@ export const character = {
 	"シエテ": {
 		element: "風",
 		status:{
-			hp: 3900,
-			atk: 851,
+			hp: 3530,
+			atk: 709,
 			skilltree:{
-				hp: 23270,
-				atk: 4942,
+				hp: 23000,
+				atk: 4919,
 				stun: 150,
 				cri: 45,
 				cridamage: 80,
@@ -355,6 +355,14 @@ export const character = {
 			"天枢・極星剣"
 		],
 		skill:[
+		"バリード",
+		"インフィニート・クレアーレ",
+		"ロンピエンド",
+		"イスピラツィオーネ",
+		"プリジオン・デ・アルマス",
+		"デスペダザール",
+		"テンペスターレ",
+		"七星の煌めき"
 		],
 	},
 }
