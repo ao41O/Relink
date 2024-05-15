@@ -742,7 +742,7 @@ class Html{
 	static damage(charaName){
 		let checkbox
 		if(charaName === "シエテ"){
-			checkbox = <input type="checkbox" id="剣神" value="剣神"><label for="剣神">剣神</label>
+			checkbox = `<input type="checkbox" id="剣神" value="剣神"><label for="剣神">剣神</label>`
 		}
 		return `
 		<div style="width: 58%; border-bottom:1px solid;">
@@ -751,8 +751,8 @@ class Html{
 		<div style="width: 40%; margin-left:2%; border-bottom:1px solid;">
 			DPS
 		</div>
-		<div id="${charaName}damage" style="width: 100%; display:flex; flex-wrap: wrap"></div>
-		${checkbox}`
+		<div id="${charaName}damage" style="width: 100%; display:flex; flex-wrap: wrap"></div>`
+		${checkbox}
 	}
 	
 	static text(charaName, typeName, textValue, size){
