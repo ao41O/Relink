@@ -347,6 +347,8 @@ export const character = {
 		sigil:[
 		],
 		weapon:[
+			"セッテ・ディ・スパーダ",
+			"天枢・極星剣"
 		],
 		skill:[
 		],

@@ -159,5 +159,15 @@ export const weapon = {
 		atk:4013,
 		type:"覚醒"
 	},
+	"セッテ・ディ・スパーダ":{
+		hp:2575,
+		atk:2003,
+		type:"防御特化"
+	},
+	"天枢・極星剣":{
+		hp:3101,
+		atk:4013,
+		type:"覚醒"
+	},
 }
 export default weapon
