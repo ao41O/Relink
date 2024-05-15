@@ -910,7 +910,7 @@ class Build{
 		})
 		
 		let clacType = Object.keys(combo[charaName])
-		if(document.getElementById("剣神").checked){
+		if(document.getElementById("剣神").checked && charaName === "シエテ"){
 			clacType = Object.keys(combo.剣神)
 		}
 		if(eventType === "clac" || eventType === "skillclac" ){
@@ -918,7 +918,7 @@ class Build{
 		}
 		const totalDamageArray = clacType.map(comboName => {
 			let comboCharaName = combo[charaName]
-			if(document.getElementById("剣神").checked){
+			if(document.getElementById("剣神").checked && charaName === "シエテ"){
 				comboCharaName = combo.剣神
 			}
 			let 魔導士の願い = 0
