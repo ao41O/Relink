@@ -742,7 +742,7 @@ class Html{
 	static damage(charaName){
 		let checkbox = ""
 		if(charaName === "シエテ"){
-			checkbox = `<input type="checkbox" id="剣神" value="剣神"><label for="剣神">剣神状態</label>`
+			checkbox = `<div style="display: block; text-align: left;"><input type="checkbox" id="剣神" value="剣神"><label for="剣神">剣神状態</label></div>`
 		}
 		return `
 		<div style="width: 58%; border-bottom:1px solid;">
