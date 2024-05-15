@@ -641,11 +641,11 @@ class Html{
 				for(var i = 0; i < elements.length; i++) {
 					if(elements[i].checked) {
 						const radioValue = elements[i].value
-						if(typeName === "weapon" && weapon[radioValue].type === "防御特化" && charaName === "ソーン" || charaName === "シエテ"){
+						if(typeName === "weapon" && weapon[radioValue].type === "防御特化" && charaName === "ソーン" || typeName === "weapon" && weapon[radioValue].type === "防御特化" && charaName === "シエテ"){
 							localStorage.setItem(charaName+typeName, JSON.stringify([{金剛:25},{剛健:15},{クイックアビリティ:5}]))
 							localStorage.setItem(charaName+typeName+"name", radioValue)
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
-						}else if(typeName === "weapon" && weapon[radioValue].type === "覚醒" && charaName === "ソーン" || charaName === "シエテ"){
+						}else if(typeName === "weapon" && weapon[radioValue].type === "覚醒" && charaName === "ソーン" || typeName === "weapon" && weapon[radioValue].type === "覚醒" && charaName === "シエテ"){
 							localStorage.setItem(charaName+typeName, JSON.stringify([{攻撃力:25},{追撃:15},{ダメージ上限:5},{ジーン強化:1}]))
 							localStorage.setItem(charaName+typeName+"name", radioValue)
 							document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML  = localStorage.getItem(charaName+typeName+"name")
@@ -740,6 +740,10 @@ class Html{
 	}
 	
 	static damage(charaName){
+		let checkbox = ""
+		if(charaName === "シエテ"){
+			checkbox = `<input type="checkbox" id="剣神" value="剣神"><label for="剣神">剣神状態</label>`
+		}
 		return `
 		<div style="width: 58%; border-bottom:1px solid;">
 			スキル
@@ -747,7 +751,7 @@ class Html{
 		<div style="width: 40%; margin-left:2%; border-bottom:1px solid;">
 			DPS
 		</div>
-		<div id="${charaName}damage" style="width: 100%; display:flex; flex-wrap: wrap"></div>`
+		<div id="${charaName}damage" style="width: 100%; display:flex; flex-wrap: wrap"></div>${checkbox}`
 	}
 	
 	static text(charaName, typeName, textValue, size){
@@ -900,16 +904,23 @@ class Build{
 		})
 		
 		let clacType = Object.keys(combo[charaName])
+		if(document.getElementById("剣神").checked){
+			clacType = Object.keys(combo.剣神)
+		}
 		if(eventType === "clac" || eventType === "skillclac" ){
 			clacType = JSON.parse(localStorage.getItem(charaName+"topsort"))
 		}
 		const totalDamageArray = clacType.map(comboName => {
+			let comboCharaName = combo[charaName]
+			if(document.getElementById("剣神").checked){
+				comboCharaName = combo.剣神
+			}
 			let 魔導士の願い = 0
 			if(charaName === "イオ" && comboName === "コンボ攻撃HOLD + スターゲイズ" && parseFloat(localStorage.getItem(charaName+"魔導士の願い")) !== 0){
 				魔導士の願い = parseFloat(localStorage.getItem(charaName+"魔導士の願い"))
 			}
 			const クイックチャージ = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? (100 - (parseFloat(localStorage.getItem(charaName+"クイックチャージ"))*1.5 + 魔導士の願い + 魔眼の戦気)) / 100 : (100 - (0 + 魔導士の願い + 魔眼の戦気)) / 100
-			const hit = combo[charaName][comboName].hit
+			let hit = comboCharaName[comboName].hit
 			let 操舵士の導き = 0
 			if(charaName === "ラカム" && localStorage.getItem(charaName+"操舵士の導き") === "1"){
 				if(comboName === "基本攻撃"){
@@ -918,9 +929,9 @@ class Build{
 					操舵士の導き = 0.14 * 3
 				}
 			}
-			const motionspeed = (combo[charaName][comboName].motionspeed[0] + combo[charaName][comboName].motionspeed[1] * クイックチャージ) + 操舵士の導き
+			let motionspeed = (comboCharaName[comboName].motionspeed[0] + comboCharaName[comboName].motionspeed[1] * クイックチャージ) + 操舵士の導き
 			let totalDamage = 0
-			combo[charaName][comboName].cap.forEach(cap => {
+			comboCharaName[comboName].cap.forEach(cap => {
 				for (let i = cap.start - 1; i < cap.end; i++) {
 					let 魔導士の機転 = 0
 					if(charaName === "イオ" && comboName === "コンボ攻撃HOLD + スターゲイズ" && parseFloat(localStorage.getItem(charaName+"魔導士の機転")) !== 0 && i + 1 === 4){
@@ -942,14 +953,14 @@ class Build{
 					let chargeattack = 1
 					let luckycharge = 0
 					let rangeattack = 1
-					if (combo[charaName][comboName].finisher.includes(i + 1)) {
+					if (comboCharaName[comboName].finisher.includes(i + 1)) {
 						combofinisher = コンボフィニッシュ
 					}
-					if (combo[charaName][comboName].charge.includes(i + 1)) {
+					if (comboCharaName[comboName].charge.includes(i + 1)) {
 						chargeattack = チャージアタック
 						luckycharge = 溜め会心
 					}
-					if (combo[charaName][comboName].range.includes(i + 1)) {
+					if (comboCharaName[comboName].range.includes(i + 1)) {
 						rangeattack = 集中砲火
 					}
 					let 真紅の戦気cri = 0
@@ -960,13 +971,12 @@ class Build{
 					const skillMultiplier = 背水 * 渾身 * 捨て身 * コンボボーナス * combofinisher * chargeattack * rangeattack * 弱体状態特効 * オーバードライブ特効 * ブレイク特効 * 先制 * 修羅 * ガードリベンジ * 回避リベンジ * 裸一貫 * ブレイブオーラ * 聖騎士の威風 * アルベス_フェルマーレ
 					const criticalChance = Math.min(100, parseFloat(localStorage.getItem(charaName+"cri")) + luckycharge + 真紅の戦気cri)
 					const criAverage = (1 - criticalChance / 100 + criticalChance / 100 * (1 + (criDamage / 100))).toFixed(2)
-					const damageMultiplier = ((100 + combo[charaName][comboName].multiplier[i]) / 100)
+					const damageMultiplier = ((100 + comboCharaName[comboName].multiplier[i]) / 100)
 					let product = charaAtk * damageMultiplier * criAverage * skillMultiplier
 					let newValue = Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * 与ダメージ強化 * (hit[i] + 操舵士の導きhit) / motionspeed
 					totalDamage += newValue
 				}
 			})
-			
 			
 			let totalSkillDamage = 0
 			for (let i = 1; i <= 5; i++) {
@@ -1078,6 +1088,9 @@ class Build{
 				Build.skill(charaName)
 				Update.status(charaName)
 				Build.localDamage(charaName)
+				document.getElementById("剣神").addEventListener("change", () => {
+					Build.damage("シエテ", "html")
+				})
 			})
 			return`
 			<details>

@@ -348,6 +348,7 @@ export const combo = {
 			range: [1],
 			default: 61667,
 		},
+	},
 	"シエテ":{
 		"コンボ攻撃A":{
 			multiplier:[
@@ -413,96 +414,6 @@ export const combo = {
 			],
 			motionspeed: [4.81, 0],
 			finisher: [6, 7],
-			charge: [0],
-			range: [0],
-			default: 1
-		},
-		"剣神コンボ攻撃A":{
-			multiplier:[
-				-40, 13, -22, -7, -13, 19, 84
-			],
-			hit:[
-				4, 1, 1, 1, 1, 1, 1
-			],
-			cap:[
-				{start: 1, end: 1, max: 5999},
-				{start: 2, end: 2, max: 11999},
-				{start: 3, end: 7, max: 34999},
-			],
-			motionspeed: [3.62, 0],
-			finisher: [6, 7],
-			charge: [0],
-			range: [0],
-			default: 1
-		},
-		"剣神コンボ攻撃B":{
-			multiplier:[
-				-40, -22, -31, -28, 108, 13, 53, -1, 119
-			],
-			hit:[
-				1, 1, 1, 1, 1, 1, 1, 3, 2
-			],
-			cap:[
-				{start: 1, end: 5, max: 5999},
-				{start: 6, end: 8, max: 11999},
-				{start: 9, end: 9, max: 34999},
-			],
-			motionspeed: [3.26, 0],
-			finisher: [9],
-			charge: [0],
-			range: [0],
-			default: 1
-		},
-		"剣神コンボ攻撃C":{
-			multiplier:[
-				
-			],
-			hit:[
-				
-			],
-			cap:[
-				{start: 1, end: 8, max: 5999},
-				{start: 2, end: 2, max: 11999},
-				{start: 3, end: 7, max: 34999},
-			],
-			motionspeed: [5.41, 0],
-			finisher: [0],
-			charge: [0],
-			range: [0],
-			default: 1
-		},
-		"剣神コンボ攻撃D":{
-			multiplier:[
-				
-			],
-			hit:[
-				
-			],
-			cap:[
-				{start: 1, end: 1, max: 5999},
-				{start: 2, end: 2, max: 11999},
-				{start: 3, end: 7, max: 34999},
-			],
-			motionspeed: [3.62, 0],
-			finisher: [0],
-			charge: [0],
-			range: [0],
-			default: 1
-		},
-		"コンボ攻撃E":{
-			multiplier:[
-				
-			],
-			hit:[
-				
-			],
-			cap:[
-				{start: 1, end: 1, max: 11999},
-				{start: 1, end: 1, max: 34999},
-				{start: 1, end: 1, max: 74999},
-			],
-			motionspeed: [3.62, 0],
-			finisher: [0],
 			charge: [0],
 			range: [0],
 			default: 1
