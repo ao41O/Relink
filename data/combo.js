@@ -365,7 +365,7 @@ export const combo = {
 			finisher: [4, 5],
 			charge: [0],
 			range: [0],
-			default: 1
+			default: 19653
 		},
 		"コンボ攻撃B":{
 			multiplier:[
@@ -382,7 +382,7 @@ export const combo = {
 			finisher: [5, 6],
 			charge: [0],
 			range: [0],
-			default: 1
+			default: 18890
 		},
 		"コンボ攻撃C":{
 			multiplier:[
@@ -399,7 +399,7 @@ export const combo = {
 			finisher: [6, 7],
 			charge: [0],
 			range: [0],
-			default: 1
+			default: 29192
 		},
 		"コンボ攻撃D":{
 			multiplier:[
@@ -416,7 +416,7 @@ export const combo = {
 			finisher: [6, 7],
 			charge: [0],
 			range: [0],
-			default: 1
+			default: 31853
 		},
 	},
 	"剣神":{
@@ -436,7 +436,7 @@ export const combo = {
 			finisher: [6, 7],
 			charge: [0],
 			range: [0],
-			default: 1
+			default: 240291
 		},
 		"剣神コンボ攻撃B":{
 			multiplier:[
@@ -454,7 +454,7 @@ export const combo = {
 			finisher: [9],
 			charge: [0],
 			range: [0],
-			default: 1
+			default: 40568
 		},
 		"剣神コンボ攻撃C":{
 			multiplier:[
@@ -472,7 +472,7 @@ export const combo = {
 			finisher: [15, 16],
 			charge: [0],
 			range: [0],
-			default: 1
+			default: 38102
 		},
 		"剣神コンボ攻撃D":{
 			multiplier:[
@@ -490,7 +490,7 @@ export const combo = {
 			finisher: [13, 14, 15],
 			charge: [0],
 			range: [0],
-			default: 1
+			default: 47977
 		},
 		"剣神コンボ攻撃E":{
 			multiplier:[
@@ -509,7 +509,7 @@ export const combo = {
 			finisher: [13, 14, 15, 16, 17, 18, 19],
 			charge: [0],
 			range: [0],
-			default: 1
+			default: 71523
 		},
 	},
 }
