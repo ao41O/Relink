@@ -897,11 +897,11 @@ class Build{
 						}
 						const damageCap = (100 + 剣聖の閃刃 / 2 + parseFloat(localStorage.getItem(charaName+"ダメージ上限")) + parseFloat(localStorage.getItem(charaName+"涯ての七星")) * 2 + parseFloat(localStorage.getItem(charaName+"涯の二王")) * 2 + parseFloat(localStorage.getItem(charaName+"紙一重")) + parseFloat(localStorage.getItem(charaName+"ベータ・コード")) + parseFloat(localStorage.getItem(charaName+"ガンマ・コード")) + カタストロフィ + parseFloat(localStorage.getItem(charaName+"weaponcollectnormalcap")) + parseFloat(localStorage.getItem(charaName+"skilltreenormalcap")) + parseFloat(localStorage.getItem(charaName+"limitbreakskillcap"))) / 100
 						const criticalChance = Math.min(100, parseFloat(localStorage.getItem(charaName+"cri")) + luckycharge + 真紅の戦気cri)
-						const criAverage = (1 - criticalChance / 100 + criticalChance / 100 * (1 + (criDamage / 100))).toFixed(2)
 						const skillMultiplier = 背水 * 渾身 * 捨て身 * アビリティダメージ * コンボボーナス * chargeattack * rangeattack * 弱体状態特効 * オーバードライブ特効 * ブレイク特効 * 先制 * 修羅 * ガードリベンジ * 回避リベンジ * 裸一貫 * ブレイブオーラ * 聖騎士の威風 * アルベス_フェルマーレ * (100 +剣聖の閃刃) /100
 						const damageMultiplier = ((100 + abilityArray[abillityName].multiplier[i]) / 100)
-						let product = charaAtk * damageMultiplier * criAverage * skillMultiplier
-						let newValue = Math.round(Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * 与ダメージ強化 * hit[i])
+						let product = charaAtk * damageMultiplier * skillMultiplier
+						const criAverage = ((1 - criticalChance / 100) * Math.min(product, damageCap * cap.max) + criticalChance / 100 * Math.min(product * (1 + criDamage / 100), damageCap * cap.max)).toFixed(2)
+						let newValue = Math.round(criAverage * 追撃期待値 * 有利 * 与ダメージ強化 * hit[i])
 						totalDamage += newValue
 						localStorage.setItem(`${charaName}abillityDamage${newIndex}`, totalDamage)
 					}
@@ -976,10 +976,10 @@ class Build{
 					const damageCap = (100  + 剣聖の閃刃 / 2 +  魔導士の機転 + 操舵士の意地 + parseFloat(localStorage.getItem(charaName+"ダメージ上限")) + parseFloat(localStorage.getItem(charaName+"涯ての七星")) * 2 + parseFloat(localStorage.getItem(charaName+"涯の二王")) * 2 + parseFloat(localStorage.getItem(charaName+"紙一重")) + parseFloat(localStorage.getItem(charaName+"アルファ・コード")) + parseFloat(localStorage.getItem(charaName+"ガンマ・コード")) + カタストロフィ + parseFloat(localStorage.getItem(charaName+"weaponcollectnormalcap")) + parseFloat(localStorage.getItem(charaName+"skilltreenormalcap")) + parseFloat(localStorage.getItem(charaName+"limitbreaknormalcap"))) / 100
 					const skillMultiplier = 背水 * 渾身 * 捨て身 * コンボボーナス * combofinisher * chargeattack * rangeattack * 弱体状態特効 * オーバードライブ特効 * ブレイク特効 * 先制 * 修羅 * ガードリベンジ * 回避リベンジ * 裸一貫 * ブレイブオーラ * 聖騎士の威風 * アルベス_フェルマーレ * (100 +剣聖の閃刃) /100
 					const criticalChance = Math.min(100, parseFloat(localStorage.getItem(charaName+"cri")) + luckycharge + 真紅の戦気cri)
-					const criAverage = (1 - criticalChance / 100 + criticalChance / 100 * (1 + (criDamage / 100))).toFixed(2)
 					const damageMultiplier = ((100 + comboCharaName[comboName].multiplier[i]) / 100)
-					let product = charaAtk * damageMultiplier * criAverage * skillMultiplier
-					let newValue = Math.min(product, damageCap * cap.max) * 追撃期待値 * 有利 * 与ダメージ強化 * (hit[i] + 操舵士の導きhit) / motionspeed
+					let product = charaAtk * damageMultiplier * skillMultiplier
+					const criAverage = ((1 - criticalChance / 100) * Math.min(product, damageCap * cap.max) + criticalChance / 100 * Math.min(product * (1 + criDamage / 100), damageCap * cap.max)).toFixed(2)
+					let newValue = criAverage * 追撃期待値 * 有利 * 与ダメージ強化 * (hit[i] + 操舵士の導きhit) / motionspeed
 					totalDamage += newValue
 				}
 			})
