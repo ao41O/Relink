@@ -492,6 +492,25 @@ export const combo = {
 			range: [0],
 			default: 1
 		},
+		"剣神コンボ攻撃E":{
+			multiplier:[
+				-43, -24, -49, 14, -22, -18, 22, 13, 52, 16, 48, 95, 178, 169, 384, 345, 674, 737, 926
+			],
+			hit:[
+				1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1
+			],
+			cap:[
+				{start: 1, end: 7, max: 5999},
+				{start: 8, end: 12, max: 11999},
+				{start: 13, end: 15, max: 34999},
+				{start: 16, end: 19, max: 74999},
+			],
+			motionspeed: [8, 0],
+			finisher: [13, 14, 15, 16, 17, 18, 19],
+			charge: [0],
+			range: [0],
+			default: 1
+		},
 	},
 }
 export default combo
