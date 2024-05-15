@@ -752,7 +752,7 @@ class Html{
 			DPS
 		</div>
 		<div id="${charaName}damage" style="width: 100%; display:flex; flex-wrap: wrap"></div>`
-		${checkbox}
+		
 	}
 	
 	static text(charaName, typeName, textValue, size){
