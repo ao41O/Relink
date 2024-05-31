@@ -9,10 +9,6 @@ const wrightstoneNumberArray = [...Array(3).keys()].map(i => `wrightstone${i + 1
 
 const sigilnum = [...Array(24).keys()].map(i => `sigilnum${i + 1}`);
 
-const wrightstoneNumberArray = [...Array(3).keys()].map(i => `wrightstone${i + 1}`)
-
-const sigilnum = [...Array(24).keys()].map(i => `sigilnum${i + 1}`);
-
 class Update{
 	static status(charaName, eventType){
 		this.calc(charaName)
