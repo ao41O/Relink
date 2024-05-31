@@ -9,13 +9,16 @@ const wrightstoneNumberArray = [...Array(3).keys()].map(i => `wrightstone${i + 1
 
 const sigilnum = [...Array(24).keys()].map(i => `sigilnum${i + 1}`);
 
+const wrightstoneNumberArray = [...Array(3).keys()].map(i => `wrightstone${i + 1}`)
+
+const sigilnum = [...Array(24).keys()].map(i => `sigilnum${i + 1}`);
+
 class Update{
 	static status(charaName, eventType){
 		this.calc(charaName)
 		const statusTypeArray = ["hp", "atk", "cri", "stun"]
 		statusTypeArray.forEach(statusType => {
 			const 暴君 = (parseFloat(localStorage.getItem(charaName+"暴君")) + 100) / 100
-			const クイックチャージ = (100 + parseFloat(localStorage.getItem(charaName+"クイックチャージ")))/ 100
 			const 窮鼠 = (100 + parseFloat(localStorage.getItem(charaName+"窮鼠")))/ 100
 			const 紙一重 = (100 + parseFloat(localStorage.getItem(charaName+"紙一重")))/ 100
 			const 守護 = (100 + parseFloat(localStorage.getItem(charaName+"守護")))/ 100
@@ -49,12 +52,13 @@ class Update{
 
 			const calculateHP = () => {
 				let hp = Math.round((characterInt + (getItem("weaponname") !== null ? weaponInt + plusvalue : 0)) * 守護 * 金剛 * カニの恩返し * (Math.min(Math.max(getItem("暴君") || 0, 0), 1) === 0 ? 1 : 0.8))
-				setItem("hp", hp)
 				if (eventType !== "clac") {
 					if(涯の二王 !== 1 || 涯ての七星 !== 1){
 						getElement(charaName + "hp").innerHTML = Math.min(45000, hp)
+						setItem("hp", 45000)
 					}else{
 						getElement(charaName + "hp").innerHTML = hp
+						setItem("hp", hp)
 					}
 					if (getItem("weaponname") !== null) {
 						getElement(charaName + "hp" + "weapon").innerHTML = weaponInt + plusvalue
@@ -71,7 +75,7 @@ class Update{
 						}
 					})
 				}
-				let atk = Math.round((characterInt + (getItem("weaponname") !== null ? weaponInt + plusvalue : 0) + カニの共鳴) * クイックチャージ * 窮鼠 * 暴君 * 紙一重 * フラジャイルドッジ * カタストロフィ * 涯の二王 * 涯ての七星);
+				let atk = Math.round((characterInt + (getItem("weaponname") !== null ? weaponInt + plusvalue : 0) + カニの共鳴) * 窮鼠 * 暴君 * 紙一重 * フラジャイルドッジ * カタストロフィ * 涯の二王 * 涯ての七星);
 				setItem("atk", atk);
 				if (eventType !== "clac") {
 					getElement(charaName + "atk").innerHTML = atk
@@ -808,6 +812,7 @@ class Build{
 		const コンボボーナス = (100 + parseFloat(localStorage.getItem(charaName+"コンボボーナス")))/ 100
 		const 追撃 = parseFloat(localStorage.getItem(charaName+"追撃"))
 		const コンボフィニッシュ = (100 + parseFloat(localStorage.getItem(charaName+"コンボフィニッシュ")))/ 100
+		const クイックチャージ = (100 + parseFloat(localStorage.getItem(charaName+"クイックチャージ")))/ 100
 		const チャージアタック = (100 + parseFloat(localStorage.getItem(charaName+"チャージアタック")))/ 100
 		const 溜め会心 = (parseFloat(localStorage.getItem(charaName+"溜め会心")) && parseFloat(localStorage.getItem(charaName+"溜め会心")) !== 0) ? parseFloat(localStorage.getItem(charaName+"溜め会心")) : 0
 		const 集中砲火 = (100 + parseFloat(localStorage.getItem(charaName+"集中砲火")))/ 100
@@ -839,7 +844,18 @@ class Build{
 		if(charaName === "ゼタ"){
 			アルベス_フェルマーレ = (100 + (30 + 真紅の気焔))/ 100
 		}
-		const 追撃期待値 = ((1 - 追撃 / 100) + 追撃 / 100 * 1.2).toFixed(2)
+		let ベルセルク = 1
+		if(parseFloat(localStorage.getItem(charaName+"ベルセルク")) !== 0){
+			const ベルセルク期待値 = Math.max(Math.min((localStorage.getItem(charaName+"atk") - 20000) / 50, 100), 0)
+			ベルセルク = (1 - ベルセルク期待値 / 100) + ベルセルク期待値 / 100 * 1.2
+		}
+		let スパルタ = 1
+		if(parseFloat(localStorage.getItem(charaName+"スパルタ")) !== 0){
+			const スパルタ期待値 = Math.max(Math.min((localStorage.getItem(charaName+"hp") - 50000) / 300, 100), 0)
+			スパルタ = (1 - スパルタ期待値 / 100) + スパルタ期待値 / 100 * 1.2
+		}
+		const 追撃期待値 = (((1 - 追撃 / 100) + 追撃 / 100 * 1.2) + スパルタ + ベルセルク - 2).toFixed(2)
+		console.log(追撃期待値)
 		const 与ダメージ強化 = (100 + (ブレイブハート + 操舵士の戦気 + 真紅の戦気 + 聖騎士の戦気 + 魔眼の万箭 + 魔眼の戦気 + 剣聖の戦気)) / 100
 		
 		const abillitySelectArray = []
@@ -874,9 +890,9 @@ class Build{
 				if("二王の諍い" === abillityName){
 					二王の諍い = 0
 				}
-				const クイックチャージ = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? ((100 - (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) * 1.5 + 魔眼の戦気)) / 100) : (100 - (0 + 魔眼の戦気)) / 100
+				const クイックチャージcd = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? ((100 - (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) * 1.5 + 魔眼の戦気)) / 100) : (100 - (0 + 魔眼の戦気)) / 100
 				localStorage.setItem(`${charaName}abillityCd${newIndex}`, abilityArray[abillityName].cd[0] * ((100 - 二王の諍い * (クイックアビリティ + abilityArray[abillityName].cd[1])) / 100))
-				localStorage.setItem(`${charaName}abillityMotionspeed${newIndex}`, abilityArray[abillityName].motionspeed[0] + abilityArray[abillityName].motionspeed[1] * クイックチャージ)
+				localStorage.setItem(`${charaName}abillityMotionspeed${newIndex}`, abilityArray[abillityName].motionspeed[0] + abilityArray[abillityName].motionspeed[1] * クイックチャージcd)
 				const hit = abilityArray[abillityName].hit
 				let totalDamage = 0
 				abilityArray[abillityName].cap.forEach(cap => {
@@ -897,7 +913,7 @@ class Build{
 						}
 						const damageCap = (100 + 剣聖の閃刃 / 2 + parseFloat(localStorage.getItem(charaName+"ダメージ上限")) + parseFloat(localStorage.getItem(charaName+"涯ての七星")) * 2 + parseFloat(localStorage.getItem(charaName+"涯の二王")) * 2 + parseFloat(localStorage.getItem(charaName+"紙一重")) + parseFloat(localStorage.getItem(charaName+"ベータ・コード")) + parseFloat(localStorage.getItem(charaName+"ガンマ・コード")) + カタストロフィ + parseFloat(localStorage.getItem(charaName+"weaponcollectnormalcap")) + parseFloat(localStorage.getItem(charaName+"skilltreenormalcap")) + parseFloat(localStorage.getItem(charaName+"limitbreakskillcap"))) / 100
 						const criticalChance = Math.min(100, parseFloat(localStorage.getItem(charaName+"cri")) + luckycharge + 真紅の戦気cri)
-						const skillMultiplier = 背水 * 渾身 * 捨て身 * アビリティダメージ * コンボボーナス * chargeattack * rangeattack * 弱体状態特効 * オーバードライブ特効 * ブレイク特効 * 先制 * 修羅 * ガードリベンジ * 回避リベンジ * 裸一貫 * ブレイブオーラ * 聖騎士の威風 * アルベス_フェルマーレ * (100 +剣聖の閃刃) /100
+						const skillMultiplier = クイックチャージ * 背水 * 渾身 * 捨て身 * アビリティダメージ * コンボボーナス * chargeattack * rangeattack * 弱体状態特効 * オーバードライブ特効 * ブレイク特効 * 先制 * 修羅 * ガードリベンジ * 回避リベンジ * 裸一貫 * ブレイブオーラ * 聖騎士の威風 * アルベス_フェルマーレ * (100 +剣聖の閃刃) /100
 						const damageMultiplier = ((100 + abilityArray[abillityName].multiplier[i]) / 100)
 						let product = charaAtk * damageMultiplier * skillMultiplier
 						const criAverage = ((1 - criticalChance / 100) * Math.min(product, damageCap * cap.max) + criticalChance / 100 * Math.min(product * (1 + criDamage / 100), damageCap * cap.max)).toFixed(2)
@@ -925,7 +941,7 @@ class Build{
 			if(charaName === "イオ" && comboName === "コンボ攻撃HOLD + スターゲイズ" && parseFloat(localStorage.getItem(charaName+"魔導士の願い")) !== 0){
 				魔導士の願い = parseFloat(localStorage.getItem(charaName+"魔導士の願い"))
 			}
-			const クイックチャージ = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? (100 - (parseFloat(localStorage.getItem(charaName+"クイックチャージ"))*1.5 + 魔導士の願い + 魔眼の戦気)) / 100 : (100 - (0 + 魔導士の願い + 魔眼の戦気)) / 100
+			const クイックチャージcd = (parseFloat(localStorage.getItem(charaName+"クイックチャージ")) && parseFloat(localStorage.getItem(charaName+"クイックチャージ")) !== 0) ? (100 - (parseFloat(localStorage.getItem(charaName+"クイックチャージ"))*1.5 + 魔導士の願い + 魔眼の戦気)) / 100 : (100 - (0 + 魔導士の願い + 魔眼の戦気)) / 100
 			let hit = comboCharaName[comboName].hit
 			let 操舵士の導き = 0
 			if(charaName === "ラカム" && localStorage.getItem(charaName+"操舵士の導き") === "1"){
@@ -935,7 +951,7 @@ class Build{
 					操舵士の導き = 0.14 * 3
 				}
 			}
-			let motionspeed = (comboCharaName[comboName].motionspeed[0] + comboCharaName[comboName].motionspeed[1] * クイックチャージ) + 操舵士の導き
+			let motionspeed = (comboCharaName[comboName].motionspeed[0] + comboCharaName[comboName].motionspeed[1] * クイックチャージcd) + 操舵士の導き
 			let totalDamage = 0
 			comboCharaName[comboName].cap.forEach(cap => {
 				for (let i = cap.start - 1; i < cap.end; i++) {
@@ -974,7 +990,7 @@ class Build{
 						真紅の戦気cri = 100
 					}
 					const damageCap = (100  + 剣聖の閃刃 / 2 +  魔導士の機転 + 操舵士の意地 + parseFloat(localStorage.getItem(charaName+"ダメージ上限")) + parseFloat(localStorage.getItem(charaName+"涯ての七星")) * 2 + parseFloat(localStorage.getItem(charaName+"涯の二王")) * 2 + parseFloat(localStorage.getItem(charaName+"紙一重")) + parseFloat(localStorage.getItem(charaName+"アルファ・コード")) + parseFloat(localStorage.getItem(charaName+"ガンマ・コード")) + カタストロフィ + parseFloat(localStorage.getItem(charaName+"weaponcollectnormalcap")) + parseFloat(localStorage.getItem(charaName+"skilltreenormalcap")) + parseFloat(localStorage.getItem(charaName+"limitbreaknormalcap"))) / 100
-					const skillMultiplier = 背水 * 渾身 * 捨て身 * コンボボーナス * combofinisher * chargeattack * rangeattack * 弱体状態特効 * オーバードライブ特効 * ブレイク特効 * 先制 * 修羅 * ガードリベンジ * 回避リベンジ * 裸一貫 * ブレイブオーラ * 聖騎士の威風 * アルベス_フェルマーレ * (100 +剣聖の閃刃) /100
+					const skillMultiplier = クイックチャージ * 背水 * 渾身 * 捨て身 * コンボボーナス * combofinisher * chargeattack * rangeattack * 弱体状態特効 * オーバードライブ特効 * ブレイク特効 * 先制 * 修羅 * ガードリベンジ * 回避リベンジ * 裸一貫 * ブレイブオーラ * 聖騎士の威風 * アルベス_フェルマーレ * (100 +剣聖の閃刃) /100
 					const criticalChance = Math.min(100, parseFloat(localStorage.getItem(charaName+"cri")) + luckycharge + 真紅の戦気cri)
 					const damageMultiplier = ((100 + comboCharaName[comboName].multiplier[i]) / 100)
 					let product = charaAtk * damageMultiplier * skillMultiplier

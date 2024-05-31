@@ -1878,5 +1878,19 @@ export const skillArray = {
 		type:"専用",
 		text:"最大HPの上限が45000になる代わりに<br>攻撃力とダメージ上限が上昇する<br>シエテ専用"
 	},
+	"ベルセルク":{
+		lv:[
+			1
+		],
+		type:"攻撃",
+		text:""
+	},
+	"スパルタ":{
+		lv:[
+			1
+		],
+		type:"攻撃",
+		text:""
+	},
 }
 export default skillArray
