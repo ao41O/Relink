@@ -48,15 +48,19 @@ class Update{
 
 			const calculateHP = () => {
 				let hp = Math.round((characterInt + (getItem("weaponname") !== null ? weaponInt + plusvalue : 0)) * 守護 * 金剛 * カニの恩返し * (Math.min(Math.max(getItem("暴君") || 0, 0), 1) === 0 ? 1 : 0.8))
-				if (eventType !== "clac") {
-					if(涯の二王 !== 1 || 涯ての七星 !== 1){
+				if(涯の二王 !== 1 || 涯ての七星 !== 1){
+					if (eventType !== "clac") {
 						getElement(charaName + "hp").innerHTML = Math.min(45000, hp)
-						setItem("hp", 45000)
-					}else{
-						getElement(charaName + "hp").innerHTML = hp
-						setItem("hp", hp)
 					}
-					if (getItem("weaponname") !== null) {
+						setItem("hp", 45000)
+				}else{
+					if (eventType !== "clac") {
+						getElement(charaName + "hp").innerHTML = hp
+					}
+					setItem("hp", hp)
+				}
+				if (getItem("weaponname") !== null) {
+					if (eventType !== "clac") {
 						getElement(charaName + "hp" + "weapon").innerHTML = weaponInt + plusvalue
 					}
 				}
@@ -167,11 +171,11 @@ class Update{
 		wrightstoneNumberArray.forEach(wrightstoneNumber =>{
 			let lvMin
 			if(wrightstoneNumber == "wrightstone1"){
-				lvMin = 10
+				lvMin = 20
 			}else if(wrightstoneNumber == "wrightstone2"){
-				lvMin = 7
+				lvMin = 15
 			}else if(wrightstoneNumber == "wrightstone3"){
-				lvMin = 5
+				lvMin = 10
 			}
 			if(localStorage.getItem(charaName+wrightstoneNumber+"name") !== null){
 				sigilArray.push({[localStorage.getItem(charaName+wrightstoneNumber+"name")]:Math.min(lvMin, localStorage.getItem(charaName+wrightstoneNumber+"lv"))})
@@ -355,18 +359,15 @@ class Html{
 		radioButtons.forEach(radioButton => {
 			const storedRadioValue = localStorage.getItem(charaName+typeName+"name")
 			if (storedRadioValue !== null && storedRadioValue === radioButton.value) {
-				radioButton.checked = true
-				if(storedRadioValue === "クリティカル確率" && typeName === "wrightstone1"){
-					document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML = "息吹"
-				}else if(storedRadioValue === "弱点攻撃" && typeName === "wrightstone1"){
-					document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML = "隔絶"
-				}else if(storedRadioValue === "体力" && typeName === "wrightstone1"){
-					document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML = "鎮守"
-				}else if(storedRadioValue === "スタン" && typeName === "wrightstone1"){
-					document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML = "畏怖"
-				}else {
-					document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML = localStorage.getItem(charaName+typeName+"name")
-				}
+				document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML = localStorage.getItem(charaName+typeName+"name")
+			}else if(storedRadioValue === "クリティカル確率" && typeName === "wrightstone1"){
+				document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML = "息吹"
+			}else if(storedRadioValue === "弱点攻撃" && typeName === "wrightstone1"){
+				document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML = "隔絶"
+			}else if(storedRadioValue === "体力" && typeName === "wrightstone1"){
+				document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML = "鎮守"
+			}else if(storedRadioValue === "スタン" && typeName === "wrightstone1"){
+				document.querySelector("."+charaName+typeName+"buttonmodal").innerHTML = "畏怖"
 			}
 		})
 		if(typeName.includes("sigilnum")  || typeName === "wrightstone2" || typeName === "wrightstone3"){
@@ -374,24 +375,10 @@ class Html{
 				localStorage.setItem(charaName+typeName+"lv", document.getElementById(charaName+typeName).value)
 				var basicClacArray = []
 				var attackClacArray = []
-				var capClacArray = []
-				const attackArray = Object.keys(skillArray).filter(key => skillArray[key].type === "攻撃")
+				const attackArray = Object.keys(skillArray).filter(key => skillArray[key].type !== "専用" && skillArray[key].type !== "none")
 				const specificArray =  Object.keys(skillArray).filter(key => skillArray[key].type === "専用")
 				const matchedSigils = character[charaName].sigil.filter(sigil => specificArray.includes(sigil))
-				const dpsArray = [...attackArray, "カニの共鳴"]
-				const basicArray = [...matchedSigils, "クリティカル確率", "攻撃力", "クイックアビリティ", "アルファ・コード", "ベータ・コード", "ガンマ・コード"]
-				
-				basicArray.forEach(pushName => {
-					Update.sigil(charaName, typeName, "push", pushName)
-					Update.status(charaName, "clac")
-					Build.damage(charaName, "clac", pushName, basicClacArray)
-				})
-				const basicClacArraySortedData = basicClacArray.sort((a, b) => {
-					const aValue = parseInt(a[Object.keys(a)[0]][0].replace(",", ""), 10)
-					const bValue = parseInt(b[Object.keys(b)[0]][0].replace(",", ""), 10)
-					return bValue - aValue
-				})
-				const basicKeyArray = basicClacArraySortedData.map(obj => Object.keys(obj)[0])
+				const dpsArray = [...attackArray, ...matchedSigils]
 				
 				dpsArray.forEach(pushName => {
 					Update.sigil(charaName, typeName, "push", pushName)
@@ -412,11 +399,7 @@ class Html{
 				</div>
 				
 				<div style="text-align: center;  border-bottom:1px solid;">
-					その他
-				</div>
-				${this.radio_create(basicKeyArray, typeName, charaName)}
-				<div style="text-align: center;  border-bottom:1px solid;">
-					攻撃
+					ダメージソート
 				</div>
 				${this.radio_create(attackKeyArray, typeName, charaName)}`
 				const elements = document.getElementsByName(charaName+typeName)
@@ -851,7 +834,6 @@ class Build{
 			スパルタ = (1 - スパルタ期待値 / 100) + スパルタ期待値 / 100 * 1.2
 		}
 		const 追撃期待値 = (((1 - 追撃 / 100) + 追撃 / 100 * 1.2) + スパルタ + ベルセルク - 2).toFixed(2)
-		console.log(追撃期待値)
 		const 与ダメージ強化 = (100 + (ブレイブハート + 操舵士の戦気 + 真紅の戦気 + 聖騎士の戦気 + 魔眼の万箭 + 魔眼の戦気 + 剣聖の戦気)) / 100
 		
 		const abillitySelectArray = []
@@ -1178,9 +1160,9 @@ class Build{
 							</div>
 							<div id="${(charaName)}atkweapon" style="position: relative; top: 1px; color: #9b672a; width: 15%;">
 							</div>
-							${Html.button_create(Object.keys(wrightstone), "wrightstone1", "加護選択", charaName, 27, 4, 10)}
-							${Html.button_create(Object.keys(skillArray), "wrightstone2", "加護スキル選択", charaName, 27, 4, 7)}
-							${Html.button_create(Object.keys(skillArray), "wrightstone3", "加護スキル選択", charaName, 27, 4, 5)}
+							${Html.button_create(Object.keys(wrightstone), "wrightstone1", "加護選択", charaName, 27, 4, 20)}
+							${Html.button_create(Object.keys(skillArray), "wrightstone2", "加護スキル選択", charaName, 27, 4, 15)}
+							${Html.button_create(Object.keys(skillArray), "wrightstone3", "加護スキル選択", charaName, 27, 4, 10)}
 							${sigilnum.map(sigilNumber => Html.button_create(Object.keys(skillArray), sigilNumber, "---", charaName, 44, 4, 15)).join("")}
 							<div id="${charaName}skilllist" style="display: flex; flex-wrap: wrap; height:35%; width:100%; flex-direction: column; align-content: flex-start;"></div>
 						</div>
